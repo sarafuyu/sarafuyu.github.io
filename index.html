@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Home</title>
+    <style>
+      /* Basic styles for navbar, body, main, row, and footer */
+      /* ... (omitted for brevity, please use the previous response's styles) ... */
+      ul.navbar {
+        background-color: #333;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Roboto', sans-serif;
+      }
+      ul.navbar li {
+        float: left;
+      }
+      ul.navbar li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      ul.navbar li a:hover {
+        background-color: #111;
+      }
+      /* Additional styles for the profile picture, and 'About Me' section */
+      .profile-pic {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .profile-pic img {
+        border-radius: 50%;
+        max-width: 200px;
+        height: auto;
+      }
+
+      .about-me {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 18px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Page-specific background */
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f2f2f2;
+        background-image: url('img_bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+      }
+      footer {
+      background-color: #333;
+      width: 100%;
+      padding: 20px 0;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      position: absolute;
+      bottom: 0;
+    }
+    h2 {
+        font-size: 36px;
+        font-weight: 700;
+        color: rgba(91, 156, 187, 0.9);
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .profile-pic {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .profile-pic img {
+        border-radius: 50% / 30%;
+        max-width: 200px;
+        height: auto;
+        object-fit: cover;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class = "navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      
+      <div class="profile-pic">
+        <img src="img_profile.jpg" alt="Profile picture">
+      </div>
+      <h2>Welcome to my website!</h2>
+      <section class="about-me">
+        <h3>About Me</h3>
+        <p>
+          Hi! My name is Sara Rydell. I'm a skilled web developer and designer with a passion
+          for creating beautiful, responsive, and user-friendly websites. My experience includes
+          working with HTML, CSS, JavaScript. When I'm not working on projects, I love to learn new
+          technologies and expand my skillset. Feel free to take a look at my portfolio and reach
+          out if you'd like to work together!
+        </p>
+      </section>
+    </main>
+    <footer>
+      <p>Copyright &copy; Sara Rydell 2023</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+      /* Basic CSS for styling the Navbar */
+      ul.navbar {
+        background-color: #333;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Roboto', sans-serif;
+      }
+      ul.navbar li {
+        float: left;
+      }
+      ul.navbar li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      ul.navbar li a:hover {
+        background-color: #111;
+      }
+    
+      body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+    }
+    
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .actions {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #007acc;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0096db;
+      transform: translateY(-3px);
+    }
+
+    .button:active {
+      box-shadow: 0px 1px 2px rgba(0,0,0,0.15);
+      transform: translateY(1px);
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      background-image: url('img_bg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;        
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .actions {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 30%;
+      position: relative;
+    }
+
+    .image-link {
+      display: block;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image-link img {
+      width: 100%;
+      height: auto;
+      transition: transform .3s ease;
+    }
+
+    .image-link:hover img {
+      transform: scale(1.1);
+    }
+
+    .image-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity .3s ease;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .image-link:hover .image-text {
+      opacity: 1;
+    }
+    footer {
+      background-color: #333;
+      width: 100%;
+      padding: 20px 0;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      position: sticky;
+      bottom: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      transition: color .3s ease;
+    }
+
+    a:hover {
+      color: #ccc;
+    }
+
+    p {
+      margin: 0;
+    }
+    .main-content {
+        flex-grow: 1;
+    }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </header>
+  
+    <main>
+      <div id="main">
+        <section id="one">
+            <header class="major">
+                <h2>I'm glad to have you here! Please find my CV below!</h2>
+            </header>
+            
+            <iframe src="https://drive.google.com/file/d/1e89KsEsxIU1ip6VyymlVKs2wGfU6_D8y/preview" style="width:100%; height:100vh;" frameborder="0"></iframe>
+
+            <p class="text-center"><strong>Can't reach the CV directly from the page? Click the button below!</strong></p>
+            <div class = "row justify-content-center text-center col-auto">
+                <ul class="actions">
+                    <li><a href="https://drive.google.com/file/d/1e89KsEsxIU1ip6VyymlVKs2wGfU6_D8y/view?usp=share_link" class="button"target="_blank">My CV</a></li>
+                </ul>
+        </section>					
+    </div>
+    </main>
+    <footer>
+      <p>Copyright &copy; Sara Rydell 2023</p>
+    </footer>
+  </body>
+</html>
