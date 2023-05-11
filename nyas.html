@@ -1,24 +1,169 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Malvina</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>NYAS</title>
+    <style>
+      /* Basic styles for navbar, body, main, row, and footer */
+      /* ... (omitted for brevity, please use the previous response's styles) ... */
+      ul.navbar {
+        background-color: #333;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Roboto', sans-serif;
+      }
+      ul.navbar li {
+        float: left;
+      }
+      ul.navbar li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      ul.navbar li a:hover {
+        background-color: #111;
+      }
+      /* Additional styles for the profile picture, and 'About Me' section */
+      .profile-pic {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .profile-pic img {
+        border-radius: 50%;
+        max-width: 200px;
+        height: auto;
+      }
+
+      .about-me {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 18px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Page-specific background */
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f2f2f2;
+        background-image: url('img_bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+      }
+      footer {
+      background-color: #333;
+      width: 100%;
+      padding: 20px 0;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      position: sticky;
+      bottom: 0;
+    }
+    h2 {
+        font-size: 36px;
+        font-weight: 700;
+        color: rgba(91, 156, 187, 0.9);
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .profile-pic {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .profile-pic img {
+        border-radius: 50% / 30%;
+        max-width: 200px;
+        height: auto;
+        object-fit: cover;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body>
     <header>
       <nav>
-        <ul>
+        <ul class = "navbar">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <h2>What is Malvina</h2>
-      <p>Malvina is a network for female and non-binary students at KTH Royal Institute of Technology. Malvina is a member of THS and has members from different chapters and grades.</p>
-      <p>We arrange business events and social events in order to build up and strengthen the network amongst students but also to introduce our members to the work-life. We strive to host high-quality events that are inspiring for students as well as companies.</p>
-      <p>The membership is free of charge. Any THS member can become a Malvina member, but if you are not a member of THS, you can still sign up for our newsletters and come to our events. Join our community today and make valuable connections!</p>
+      <h2>My journey at TJA x NYAS</h2>
+      <section class="about-me">
+        <h3>About NYAS's TJA</h3>
+        <p>
+          For more than 200 years, the New York Academy of Sciences (NYAS) 
+          has brought together extraordinary people working at the frontiers 
+          of discovery. Among the oldest scientific organizations in the 
+          United States, the Academy has become an important and widely-
+          respected contributor to the international scientific community. 
+        </p>
+        <p>
+          Each year, the New York Academy of Sciences, part of NYAS, 
+          selects an international cohort of passionate high school 
+          students (ages 13-17) to become part of The Junior Academy (TJA), 
+          who join a dynamic global network of like-minded peers and 
+          mentors. Students collaborate virtually as they compete in 
+          project-based challenges focused on the United Nations 
+          Sustainable Development Goals. 
+        </p>
+      </section>
+      <section class="about-me">
+        <h3>Intelligent Homes & Health: Health Sync</h3>
+        <p>  
+          As the team leader of six individuals from Sweden, USA, the 
+          Philippines, and Australia, we won this international 
+          competition in the autumn of 2019. Our extensive solution 
+          involved incorporating preventative health-promoting aspects, 
+          as well as tracking and monitoring people's health in their 
+          day-to-day lives. The prize for winning was an all-included 
+          trip to the STEM Alliance Summit to present the project in the 
+          summer of 2020. However, due to the pandemic, the event was 
+          canceled. Nevertheless, I did not loose my spirit! Which I will 
+          talk about next.
+        </p>
+      </section>
+      <section class="about-me">
+        <h3>Combating COVID-19: United in Crisis</h3>
+        <p>
+          For the Combating COVID-19 competition, my team and I from 
+          Sweden, Turkey, and the USA worked together to develop a 
+          technology-based solution to address the obstacles faced by 
+          governments, healthcare providers, and economies during the 
+          pandemic. Our project, United in Crisis, focused on solving 
+          the strain on universal healthcare facilities while addressing 
+          the increased unemployment caused by the pandemic and other 
+          economic changes. We suggested utilizing AI/ML models to 
+          analyze the resumes and profiles of unemployed individuals, 
+          aiming to best match them with courses or programs required to 
+          change careers into professions in high demand. We believe this 
+          solution can help alleviate the burden on healthcare systems 
+          while also addressing the needs of those negatively impacted by 
+          the pandemic.
+        </p>
+      </section>
     </main>
     <footer>
       <p>Copyright &copy; Sara Rydell 2023</p>

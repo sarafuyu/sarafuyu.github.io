@@ -1,24 +1,196 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Malvina</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>KTH Royal Institute of Technology</title>
+    <style>
+      /* Basic styles for navbar, body, main, row, and footer */
+      /* ... (omitted for brevity, please use the previous response's styles) ... */
+      ul.navbar {
+        background-color: #333;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Roboto', sans-serif;
+      }
+      ul.navbar li {
+        float: left;
+      }
+      ul.navbar li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      ul.navbar li a:hover {
+        background-color: #111;
+      }
+      /* Additional styles for the profile picture, and 'About Me' section */
+      .profile-pic {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .profile-pic img {
+        border-radius: 50%;
+        max-width: 200px;
+        height: auto;
+      }
+
+      .about-me {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 18px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Page-specific background */
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f2f2f2;
+        background-image: url('img_bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+      }
+      footer {
+      background-color: #333;
+      width: 100%;
+      padding: 20px 0;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      position: sticky;
+      bottom: 0;
+    }
+    h2 {
+        font-size: 36px;
+        font-weight: 700;
+        color: rgba(91, 156, 187, 0.9);
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .profile-pic {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .profile-pic img {
+        border-radius: 50% / 30%;
+        max-width: 200px;
+        height: auto;
+        object-fit: cover;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body>
     <header>
       <nav>
-        <ul>
+        <ul class = "navbar">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <h2>What is Malvina</h2>
-      <p>Malvina is a network for female and non-binary students at KTH Royal Institute of Technology. Malvina is a member of THS and has members from different chapters and grades.</p>
-      <p>We arrange business events and social events in order to build up and strengthen the network amongst students but also to introduce our members to the work-life. We strive to host high-quality events that are inspiring for students as well as companies.</p>
-      <p>The membership is free of charge. Any THS member can become a Malvina member, but if you are not a member of THS, you can still sign up for our newsletters and come to our events. Join our community today and make valuable connections!</p>
+      <h2>My journey at KTH Royal Institute of Technology</h2>
+      <section class="about-me">
+        <h3>Mathematics</h3>
+        <p>
+          During my time studying at KTH, I had the opportunity to learn 
+          various mathematical subjects that have been crucial in my 
+          academic and professional development. I studied calculus, 
+          including one and multi-variable calculus, and algebra. I also 
+          studied numerical methods and lastly, I have studied discrete 
+          mathematics, and statistics in the context of machine learning. 
+        </p>
+        <p>
+          Overall, my coursework at KTH has helped me develop a better 
+          understanding of the fundamental principles and methods used in 
+          modern mathematics which has been invaluable in helping me 
+          develop my analytical and problem-solving skills. 
+        </p>
+        
+      </section>
+      <section class="about-me">
+        <h3>Computer Science</h3>
+        <p>  
+          Throughout my academic career, I have had the opportunity to 
+          study a wide range of programming and computer science courses 
+          that have been crucial in my academic and professional 
+          development. I have taken courses in Python programming and 
+          Java programming, which have provided me with a strong 
+          foundation in object-oriented programming and the ability to 
+          work with a wide range of programming languages.
+        </p>
+        <p>  
+          In addition to programming, I have studied algorithms and data 
+          structures, which have been essential in my ability to design 
+          and develop efficient and scalable software solutions. My 
+          studies in database technology, particularly SQL, have given me 
+          a strong foundation in database design and management, as well 
+          as experience working with large-scale datasets.
+        </p>
+        <p>  
+          I also have experience in low-level programming, having studied 
+          data technology and components, including C programming, 
+          assembly programming, machine code, processor design, and 
+          circuit logic. This knowledge has been invaluable in helping me 
+          understand the inner workings of computer systems and how to 
+          develop efficient software solutions that take advantage of 
+          hardware capabilities.
+        </p>
+        <p>  
+          Furthermore, I have taken a paradigm course in functional 
+          programming in Haskell, syntax, and automata, and language 
+          theory for parsers. This course has given me a strong 
+          foundation in the theory of programming languages and the 
+          ability to develop software solutions using functional 
+          programming techniques.
+        </p>
+        <p>  
+          Finally, I have experience in parallel programming, having 
+          taken a course in Golang. This has provided me with experience 
+          in developing concurrent and parallel software solutions that 
+          take advantage of modern multi-core processors.
+        </p>
+      </section>
+      <section class="about-me">
+        <h3>Physics and Chemistry</h3>
+        <p>
+          During my time studying, I have had the opportunity to learn 
+          various scientific subjects that have been instrumental in my 
+          academic and professional development. I have studied 
+          electromagnetism and wave theory, including both sound and 
+          optical waves. Additionally, I have taken mechanics courses, 
+          which have helped me understand the physical behavior of 
+          objects and the principles that govern them.
+        </p>
+        <p>
+          In addition to my physics studies, I have also taken a course 
+          in chemistry and sustainability. This course has given me a 
+          better understanding of the chemical reactions and processes 
+          that occur in the natural world, as well as how they can be 
+          harnessed for sustainable development.
+        </p>
+      </section>
     </main>
     <footer>
       <p>Copyright &copy; Sara Rydell 2023</p>
