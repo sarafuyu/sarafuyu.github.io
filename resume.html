@@ -1,236 +1,427 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <style>
-      /* Basic CSS for styling the Navbar */
-      ul.navbar {
-        background-color: #333;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: 'Roboto', sans-serif;
-      }
-      ul.navbar li {
-        float: left;
-      }
-      ul.navbar li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      ul.navbar li a:hover {
-        background-color: #111;
-      }
-    
-      body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-      margin: 0;
-      padding: 0;
-    }
-    
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV — Sara Rydell</title>
+  <meta name="description" content="Sara Rydell's curriculum vitae — IT Product Architect at Ericsson, BSc CS from KTH.">
+  <meta name="theme-color" content="#EFEAE3">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
-      color: #333;
-    }
-
-    h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-
-    .row {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    .actions {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .button {
-      display: inline-block;
-      background-color: #007acc;
-      color: #fff;
-      text-transform: uppercase;
-      padding: 12px 24px;
-      font-size: 16px;
-      text-decoration: none;
-      border-radius: 5px;
-      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #0096db;
-      transform: translateY(-3px);
-    }
-
-    .button:active {
-      box-shadow: 0px 1px 2px rgba(0,0,0,0.15);
-      transform: translateY(1px);
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
-      background-image: url('img_bg.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;        
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
-      color: #333;
-    }
-
-    h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-
-    .row {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    .actions {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 30%;
-      position: relative;
-    }
-
-    .image-link {
-      display: block;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .image-link img {
-      width: 100%;
-      height: auto;
-      transition: transform .3s ease;
-    }
-
-    .image-link:hover img {
-      transform: scale(1.1);
-    }
-
-    .image-text {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity .3s ease;
-      text-transform: uppercase;
-      color: #fff;
-      font-size: 20px;
-    }
-
-    .image-link:hover .image-text {
-      opacity: 1;
-    }
-    footer {
-      background-color: #333;
-      width: 100%;
-      padding: 20px 0;
-      color: #fff;
-      text-align: center;
-      font-size: 14px;
-      position: sticky;
-      bottom: 0;
-    }
-
-    a {
-      text-decoration: none;
-      color: #fff;
-      transition: color .3s ease;
-    }
-
-    a:hover {
-      color: #ccc;
-    }
-
-    p {
-      margin: 0;
-    }
-    .main-content {
-        flex-grow: 1;
-    }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <ul class="navbar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </header>
-  
-    <main>
-      <div id="main">
-        <section id="one">
-            <header class="major">
-                <h2>I'm glad to have you here! Please find my CV below!</h2>
-            </header>
-            
-            <iframe src="https://drive.google.com/file/d/1e89KsEsxIU1ip6VyymlVKs2wGfU6_D8y/preview" style="width:100%; height:100vh;" frameborder="0"></iframe>
-
-            <p class="text-center"><strong>Can't reach the CV directly from the page? Click the button below!</strong></p>
-            <div class = "row justify-content-center text-center col-auto">
-                <ul class="actions">
-                    <li><a href="https://drive.google.com/file/d/1e89KsEsxIU1ip6VyymlVKs2wGfU6_D8y/view?usp=share_link" class="button"target="_blank">My CV</a></li>
-                </ul>
-        </section>					
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="logotype" href="index.html">
+        <span class="logotype__mark" aria-hidden="true"></span>
+        Sara <em>Rydell</em>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>Menu</button>
+      <nav id="primary-nav" class="site-nav" data-nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Work</a>
+        <a href="resume.html" aria-current="page">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    </main>
-    <footer>
-      <p>Copyright &copy; Sara Rydell 2023</p>
-    </footer>
-  </body>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <section class="masthead" aria-label="Masthead" data-stagger>
+        <div class="masthead__col">
+          <p class="eyebrow">Interests</p>
+          <p class="masthead__value mono">Agentic AI · LLMs · Enterprise AI</p>
+        </div>
+        <div class="masthead__col">
+          <p class="eyebrow">Located</p>
+          <p class="masthead__value mono">Stockholm · 59°N</p>
+        </div>
+        <div class="masthead__col">
+          <p class="eyebrow">Weather</p>
+          <p class="masthead__value mono">
+            <span data-weather>—</span>
+          </p>
+        </div>
+        <div class="masthead__col">
+          <p class="eyebrow">Local time</p>
+          <p class="masthead__value mono">
+            <span class="masthead__pulse" aria-hidden="true"></span><span data-clock>—:—</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="article-headline" data-stagger>
+        <h1>Curriculum <br>vitæ.</h1>
+        <p class="article-headline__lead">Role, background, education, publications and honours — rendered inline. The original PDF is available below.</p>
+      </section>
+
+      <section class="cv-header" data-stagger>
+        <div class="cv-header__left">
+          <h2 class="cv-header__name">Sara Rydell.</h2>
+          <ul class="cv-header__roles">
+            <li>Ericsson IT Trainee</li>
+            <li>Dual Board Member</li>
+            <li>Dual winner of NYAS competitions</li>
+          </ul>
+        </div>
+        <div class="cv-header__right">
+          <p class="eyebrow">Contact</p>
+          <p class="cv-header__contact">
+            <a href="mailto:sara.rydell@hotmail.com">sara.rydell@hotmail.com</a>
+            <a href="contact.html">/contact</a>
+            <a href="portfolio.html">/work</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="cv-summary">
+        <header class="section__head">
+          <p class="section__num">§ 01</p>
+          <h2 class="section__title" id="cv-summary">Summary</h2>
+          <p class="section__meta">Statement</p>
+        </header>
+        <p class="lead" style="margin-top: var(--s-4); max-width: 62ch;">
+          IT Product Architect working at the intersection of enterprise IT
+          strategy and product delivery in large-scale Azure environments.
+        </p>
+        <p style="margin-top: var(--s-3); max-width: 64ch;">
+          I focus on aligning architectural direction with product execution,
+          supporting roadmap decisions, governance, and cross-organisational
+          initiatives that improve clarity and decision quality across
+          stakeholders. My background includes rotations in data science,
+          cloud engineering, and IT operations through Ericsson's IT Trainee
+          Program — giving me a broad technical foundation across AI, cloud
+          platforms, and transformation work.
+        </p>
+        <p style="margin-top: var(--s-2); max-width: 64ch;">
+          I'm particularly strong in bridging strategy and execution, enabling
+          alignment across business and engineering domains. Alongside
+          architectural responsibilities, I build automation and low-code
+          solutions using RPA and the Microsoft Power Platform to drive
+          internal efficiency.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="cv-work">
+        <header class="section__head">
+          <p class="section__num">§ 02</p>
+          <h2 class="section__title" id="cv-work">Work experience</h2>
+          <p class="section__meta">2020 — present</p>
+        </header>
+
+        <ul class="cv-entries">
+          <li class="cv-entry">
+            <p class="cv-entry__period">Jul 2025 — Present</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>Ericsson</em> AB</span>
+                <span class="cv-entry__location">Stockholm, Sweden</span>
+              </div>
+              <p class="cv-entry__role">IT Product Architect</p>
+              <ul class="cv-entry__bullets">
+                <li>IT Product Architect within a product-driven environment focused on Azure-based platforms.</li>
+                <li>Driving alignment between enterprise IT strategy and product execution, contributing to roadmap direction, prioritisation, and architectural governance.</li>
+                <li>Supporting solution and change-request reviews to balance delivery speed with long-term scalability and platform integrity.</li>
+                <li>Acting as an interface between enterprise IT, product owners, and engineering teams to ensure clarity and feasibility in strategic initiatives.</li>
+                <li>Contributing architectural perspectives to roadmap and funding discussions.</li>
+                <li>Co-spokesperson for an enterprise observability initiative, supporting communication and adoption across business and execution teams.</li>
+                <li>Complementing strategic work with automation through RPA and Microsoft Power Platform solutions.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <p class="cv-entry__period">Aug 2024 — Jun 2025</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>Ericsson</em> AB</span>
+                <span class="cv-entry__location">Stockholm, Sweden</span>
+              </div>
+              <p class="cv-entry__role">IT Trainee · 2024 / 2025</p>
+              <ul class="cv-entry__bullets">
+                <li>Data Scientist contributing to two GenAI proof-of-concepts in the areas of Supply and CSR support systems.</li>
+                <li>Cloud Engineer working with the Azure Automation pipeline and as a Financial Operations analyst.</li>
+                <li>Business Operations change management with respect to the standards and communication of the Internal Steering Group.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <p class="cv-entry__period">Sep 2023 — Feb 2024</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company">KTH Royal Institute of <em>Technology</em></span>
+                <span class="cv-entry__location">Stockholm, Sweden</span>
+              </div>
+              <p class="cv-entry__role">Teaching Assistant · Python &amp; Database Technologies</p>
+              <ul class="cv-entry__bullets">
+                <li>Improved student performance and understanding in Python and SQL — leading recitation sessions, hosting help sessions, and conducting assignment assessments and grading.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <p class="cv-entry__period">Oct 2020 — Present</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>Pharus Tech</em> AB</span>
+                <span class="cv-entry__location">Stockholm, Sweden</span>
+              </div>
+              <p class="cv-entry__role">Board Member</p>
+              <ul class="cv-entry__bullets">
+                <li>Distinct honour of being the youngest individual elected to a company board in Sweden at the time, reflecting trusted leadership and innovative vision.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <p class="cv-entry__period">Jul 2020 — Sep 2020</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>Pharus Tech</em> AB</span>
+                <span class="cv-entry__location">Stockholm, Sweden</span>
+              </div>
+              <p class="cv-entry__role">IT Architecture Consultant</p>
+              <ul class="cv-entry__bullets">
+                <li>Led a team in creating UI algorithms for skill-to-profile matching, drawing on insights from the ESCO dataset — markedly enhancing the experience, improving product quality, and heightening user satisfaction.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="cv-edu">
+        <header class="section__head">
+          <p class="section__num">§ 03</p>
+          <h2 class="section__title" id="cv-edu">Education</h2>
+          <p class="section__meta">KTH</p>
+        </header>
+        <ul class="cv-entries">
+          <li class="cv-entry">
+            <p class="cv-entry__period">Sep 2021 — Jun 2024</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company">KTH Royal Institute of <em>Technology</em></span>
+                <span class="cv-entry__location">Stockholm, Sweden</span>
+              </div>
+              <p class="cv-entry__role">Bachelor of Science · Computer Science</p>
+              <ul class="cv-entry__bullets">
+                <li>Coursework: Algorithms, Data structures, Databases, Mathematics, Computer architecture, Machine Learning.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="cv-pub">
+        <header class="section__head">
+          <p class="section__num">§ 04</p>
+          <h2 class="section__title" id="cv-pub">Publications</h2>
+          <p class="section__meta">2024</p>
+        </header>
+        <ul class="cv-entries">
+          <li class="cv-entry">
+            <p class="cv-entry__period">Aug 2024</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>Support Vector Machines</em> for High-dimensional and Incomplete Datasets with Few Entries</span>
+              </div>
+              <p class="cv-entry__role">Sara Rydell · Noah Hopkins · Cristina Al-Khalili Szigyarto · Jörg Conradt</p>
+              <ul class="cv-entry__bullets">
+                <li>KTH Royal Institute of Technology.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="cv-entry">
+            <p class="cv-entry__period">Nov 2024</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>INCLUDE</em>: Evaluating Multilingual Language Understanding with Regional Knowledge</span>
+              </div>
+              <p class="cv-entry__role">Angelika Romanou et&nbsp;al. · data contributor</p>
+              <ul class="cv-entry__bullets">
+                <li>EPFL · Cohere For AI · ETH Zürich · Swiss AI Initiative.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="cv-honors">
+        <header class="section__head">
+          <p class="section__num">§ 05</p>
+          <h2 class="section__title" id="cv-honors">Honours</h2>
+          <p class="section__meta">2020</p>
+        </header>
+        <ul class="cv-entries">
+          <li class="cv-entry">
+            <p class="cv-entry__period">May 2020</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>Young Innovation in Times of Crisis</em></span>
+                <span class="cv-entry__location">Stockholm, Sweden</span>
+              </div>
+              <p class="cv-entry__role">Issued by the Royal Swedish Academy of Engineering Sciences (IVA)</p>
+              <ul class="cv-entry__bullets">
+                <li>Awarded for <em>United in Crisis</em>, part of the global Combating COVID-19 challenge by NYAS' Junior Academy — addressing pandemic-induced unemployment and healthcare resource shortages.</li>
+                <li>Recognition led to invitations to share the project on national television and radio, bringing the work into the national spotlight.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="cv-entry">
+            <p class="cv-entry__period">Feb 2020</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company">Winner — <em>The Intelligent Homes &amp; Health Challenge</em></span>
+                <span class="cv-entry__location">New York, USA</span>
+              </div>
+              <p class="cv-entry__role">Issued by the New York Academy of Sciences (NYAS)</p>
+              <ul class="cv-entry__bullets">
+                <li>Won the international innovation competition with my team's project <em>Health Sync</em> — merging health-monitoring technology with home design.</li>
+                <li>Awarded a travelling stipend and an exclusive invitation to the Global Alliance Summit 2020.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="cv-vol">
+        <header class="section__head">
+          <p class="section__num">§ 06</p>
+          <h2 class="section__title" id="cv-vol">Engagements &amp; programmes</h2>
+          <p class="section__meta">2019 — 2024</p>
+        </header>
+        <ul class="cv-entries">
+          <li class="cv-entry">
+            <p class="cv-entry__period">May 2023 — Jun 2024</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>Malvina</em>, KTH</span>
+                <span class="cv-entry__location">1,000 members · Stockholm</span>
+              </div>
+              <p class="cv-entry__role">Head of Business Events · 2023/2024</p>
+              <ul class="cv-entry__bullets">
+                <li>Pivotal role guiding the board's decision-making and leading Malvina's business events division — instrumental in delivering high-quality events and strengthening Malvina's partnerships.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="cv-entry">
+            <p class="cv-entry__period">May 2022 — May 2023</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>Malvina</em>, KTH</span>
+                <span class="cv-entry__location">Stockholm</span>
+              </div>
+              <p class="cv-entry__role">Member · Business Events Group · 2022/2023</p>
+              <ul class="cv-entry__bullets">
+                <li>Maintained corporate relations and organised key events with notable partners — including Google, Saab, and INVERTO BCG.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="cv-entry">
+            <p class="cv-entry__period">Feb 2024 — Jun 2024</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company">Boston Consulting <em>Group</em></span>
+                <span class="cv-entry__location">Stockholm</span>
+              </div>
+              <p class="cv-entry__role">BCG Emeralds Talent Programme</p>
+              <ul class="cv-entry__bullets">
+                <li>Selected for the competitive talent programme — honing case-solving abilities and expanding professional skills through workshops and mentoring.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="cv-entry">
+            <p class="cv-entry__period">Feb 2023</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company"><em>SEB</em> Group</span>
+                <span class="cv-entry__location">Stockholm</span>
+              </div>
+              <p class="cv-entry__role">Tech Talent of the Year 2023 · Finalist</p>
+              <ul class="cv-entry__bullets">
+                <li>Selected among the top eight finalists — exhibiting strong analytical and strategic capabilities in pinpointing critical success factors for SEB Greentech Venture Capital's potential investments.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="cv-entry">
+            <p class="cv-entry__period">Sep 2019 — Dec 2020</p>
+            <div>
+              <div class="cv-entry__head">
+                <span class="cv-entry__company">NYAS · The Junior <em>Academy</em></span>
+                <span class="cv-entry__location">Remote · global</span>
+              </div>
+              <p class="cv-entry__role">Project Leader</p>
+              <ul class="cv-entry__bullets">
+                <li>Recognition in the highly selective international STEM elite programme with an 8% acceptance rate.</li>
+                <li>Led two projects to victory — 1st place in the global Intelligent Homes &amp; Health competition; <em>Young Innovation in Times of Crisis</em> award in the Combating COVID-19 challenge.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="cv-skills">
+        <header class="section__head">
+          <p class="section__num">§ 07</p>
+          <h2 class="section__title" id="cv-skills">Skills</h2>
+          <p class="section__meta">Languages &amp; tools</p>
+        </header>
+        <div class="cv-grid" style="margin-top: var(--s-3);">
+          <p class="eyebrow">Stack</p>
+          <ul class="cv-skills">
+            <li>Python</li>
+            <li>Java / C</li>
+            <li>SQL</li>
+            <li>PowerShell</li>
+            <li>PowerBI</li>
+            <li>MATLAB</li>
+            <li>scikit-learn</li>
+            <li>HTML / CSS / JavaScript</li>
+            <li>Go</li>
+            <li>Assembly</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="cv-download">
+        <a class="cv-link" href="Resume-Sara.pdf" download>Download <em>CV</em> · PDF</a>
+        <p class="mono" style="font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em;">
+          Same content, original formatting · A4
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="colophon">
+    <div class="container colophon__grid">
+      <div class="colophon__col">
+        <p class="eyebrow">Studio</p>
+        <p>Sara <em>Rydell</em><br>Stockholm, Sweden</p>
+      </div>
+      <div class="colophon__col">
+        <p class="eyebrow">Index</p>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="resume.html">CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="colophon__col">
+        <p class="eyebrow">Updated</p>
+        <p class="mono">© <span data-year>2026</span> · MMXXVI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
 </html>

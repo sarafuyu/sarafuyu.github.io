@@ -1,249 +1,149 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <style>
-      /* Basic CSS for styling the Navbar */
-      ul.navbar {
-        background-color: #333;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: 'Roboto', sans-serif;
-      }
-      ul.navbar li {
-        float: left;
-      }
-      ul.navbar li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      ul.navbar li a:hover {
-        background-color: #111;
-      }
-    
-      body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-      margin: 0;
-      padding: 0;
-    }
-    
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work — Sara Rydell</title>
+  <meta name="description" content="Selected projects and experiences by Sara Rydell.">
+  <meta name="theme-color" content="#EFEAE3">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
-      color: #333;
-    }
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="logotype" href="index.html">
+        <span class="logotype__mark" aria-hidden="true"></span>
+        Sara <em>Rydell</em>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>Menu</button>
+      <nav id="primary-nav" class="site-nav" data-nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html" aria-current="page">Work</a>
+        <a href="resume.html">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
+  <main id="main">
+    <div class="container">
+      <section class="masthead" aria-label="Masthead" data-stagger>
+        <div class="masthead__col">
+          <p class="eyebrow">Interests</p>
+          <p class="masthead__value mono">Agentic AI · LLMs · Enterprise AI</p>
+        </div>
+        <div class="masthead__col">
+          <p class="eyebrow">Located</p>
+          <p class="masthead__value mono">Stockholm · 59°N</p>
+        </div>
+        <div class="masthead__col">
+          <p class="eyebrow">Weather</p>
+          <p class="masthead__value mono">
+            <span data-weather>—</span>
+          </p>
+        </div>
+        <div class="masthead__col">
+          <p class="eyebrow">Local time</p>
+          <p class="masthead__value mono">
+            <span class="masthead__pulse" aria-hidden="true"></span><span data-clock>—:—</span>
+          </p>
+        </div>
+      </section>
 
-    .row {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      margin-bottom: 20px;
-    }
+      <section class="article-headline" data-stagger>
+        <h1>Selected <br>work.</h1>
+        <p class="article-headline__lead">Roles, engagements, and projects — present-day work first; earlier studies and competitions further down.</p>
+      </section>
 
-    .actions {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .button {
-      display: inline-block;
-      background-color: #007acc;
-      color: #fff;
-      text-transform: uppercase;
-      padding: 12px 24px;
-      font-size: 16px;
-      text-decoration: none;
-      border-radius: 5px;
-      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #0096db;
-      transform: translateY(-3px);
-    }
-
-    .button:active {
-      box-shadow: 0px 1px 2px rgba(0,0,0,0.15);
-      transform: translateY(1px);
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
-      background-image: url('img_bg.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;  
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
-      color: #333;
-    }
-
-    h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-
-    .row {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    .actions {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 30%;
-      position: relative;
-    }
-
-    .image-link {
-      display: block;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .image-link img {
-      width: 100%;
-      height: auto;
-      transition: transform .3s ease;
-    }
-
-    .image-link:hover img {
-      transform: scale(1.1);
-    }
-
-    .image-text {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity .3s ease;
-      text-transform: uppercase;
-      color: #fff;
-      font-size: 20px;
-    }
-
-    .image-link:hover .image-text {
-      opacity: 1;
-    }
-    footer {
-      background-color: #333;
-      width: 100%;
-      padding: 20px 0;
-      color: #fff;
-      text-align: center;
-      font-size: 14px;
-      position: sticky;
-      bottom: 0;
-    }
-
-    a {
-      text-decoration: none;
-      color: #fff;
-      transition: color .3s ease;
-    }
-
-    a:hover {
-      color: #ccc;
-    }
-
-    p {
-      margin: 0;
-    }
-    .main-content {
-      flex-grow: 1;
-    }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <ul class="navbar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </header>
-  
-    <main class="main-content">
-      <h2>Welcome to my portfolio!</h2>
-      <div class="row">
-        <ul class="actions">
-          <li>
-            <a href="kth.html" class="image-link"> <!--target="_blank"-->
-              <img src="img_kth.jpeg" alt="KTH image">
-              <div class="image-text">Me @ KTH</div>
+      <section class="section" aria-labelledby="works">
+        <header class="section__head">
+          <p class="section__num">§ 01</p>
+          <h2 class="section__title" id="works">Index of work</h2>
+          <p class="section__meta">2019 — present</p>
+        </header>
+        <ul class="work-list">
+          <li class="work-item">
+            <a class="work-item__link" href="ericsson.html">
+              <span class="work-item__num">01</span>
+              <span class="work-item__title"><em>Ericsson</em> AB</span>
+              <span class="work-item__role">IT Product Architect · Stockholm, 2025 — present</span>
+              <span class="work-item__cat">Role</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
+            <a class="work-item__link" href="pharus.html">
+              <span class="work-item__num">02</span>
+              <span class="work-item__title"><em>Pharus Tech</em> AB</span>
+              <span class="work-item__role">Board Member · IT Architecture Consultant, since 2020</span>
+              <span class="work-item__cat">Engagement</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
+            <a class="work-item__link" href="kth.html">
+              <span class="work-item__num">03</span>
+              <span class="work-item__title">KTH Royal Institute of <em>Technology</em></span>
+              <span class="work-item__role">BSc Computer Science · TA in Python &amp; Databases</span>
+              <span class="work-item__cat">Education</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
+            <a class="work-item__link" href="nyas.html">
+              <span class="work-item__num">04</span>
+              <span class="work-item__title">NYAS · The Junior <em>Academy</em></span>
+              <span class="work-item__role">Team lead · Health Sync &amp; United in Crisis (dual winner)</span>
+              <span class="work-item__cat">Project</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
+            <a class="work-item__link" href="malvina.html">
+              <span class="work-item__num">05</span>
+              <span class="work-item__title"><em>Malvina</em>, KTH</span>
+              <span class="work-item__role">Head of Business Events · 2023 / 2024</span>
+              <span class="work-item__cat">Organisation</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
           </li>
         </ul>
-        <ul class="actions">
-          <li>
-            <a href="nyas.html" class="image-link">
-              <img src="img_nyas.jpg" alt="NYAS image">
-              <div class="image-text">NYAS X IVA</div>
-            </a>
-          </li>
-        </ul>
-        <ul class="actions">
-          <li>
-            <a href="malvina.html" class="image-link">
-              <img src="img_malvina.jpg" alt="Malvina image">
-              <div class="image-text">Malvina!</div>
-            </a>
-          </li>
+        <p class="mono" style="font-size: 0.75rem; color: var(--muted); margin-top: var(--s-4); letter-spacing: 0.04em;">
+          End of index. Programmes (BCG, SEB) &amp; publications listed in <a href="about.html" style="color: var(--ink); text-decoration-color: var(--hairline-strong);">About</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="colophon">
+    <div class="container colophon__grid">
+      <div class="colophon__col">
+        <p class="eyebrow">Studio</p>
+        <p>Sara <em>Rydell</em><br>Stockholm, Sweden</p>
+      </div>
+      <div class="colophon__col">
+        <p class="eyebrow">Index</p>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="resume.html">CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <p>Here you can learn more about some of my previous projects!</p>
-    </main>
-    <footer>
-      <p>Copyright &copy; Sara Rydell 2023</p>
-    </footer>
-  </body>
+      <div class="colophon__col">
+        <p class="eyebrow">Updated</p>
+        <p class="mono">© <span data-year>2026</span> · MMXXVI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
 </html>

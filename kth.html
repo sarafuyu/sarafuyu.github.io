@@ -1,199 +1,218 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>KTH Royal Institute of Technology</title>
-    <style>
-      /* Basic styles for navbar, body, main, row, and footer */
-      /* ... (omitted for brevity, please use the previous response's styles) ... */
-      ul.navbar {
-        background-color: #333;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: 'Roboto', sans-serif;
-      }
-      ul.navbar li {
-        float: left;
-      }
-      ul.navbar li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      ul.navbar li a:hover {
-        background-color: #111;
-      }
-      /* Additional styles for the profile picture, and 'About Me' section */
-      .profile-pic {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-      }
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KTH Royal Institute of Technology — Sara Rydell</title>
+  <meta name="description" content="Sara Rydell's coursework at KTH Royal Institute of Technology — mathematics, computer science, physics.">
+  <meta name="theme-color" content="#EFEAE3">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-      .profile-pic img {
-        border-radius: 50%;
-        max-width: 200px;
-        height: auto;
-      }
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="logotype" href="index.html">
+        <span class="logotype__mark" aria-hidden="true"></span>
+        Sara <em>Rydell</em>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>Menu</button>
+      <nav id="primary-nav" class="site-nav" data-nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html" aria-current="page">Work</a>
+        <a href="resume.html">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-      .about-me {
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        width: 80%;
-        margin: 0 auto;
-        font-size: 18px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+  <main id="main">
+    <div class="container">
+      <section class="article-meta" data-stagger>
+        <div class="article-meta__row">
+          <p class="eyebrow">Entry</p>
+          <p class="article-meta__value">No. 03 / Education</p>
+        </div>
+        <div class="article-meta__row">
+          <p class="eyebrow">Degree</p>
+          <p class="article-meta__value">BSc Computer Science · 2021 — 2024</p>
+        </div>
+        <div class="article-meta__row">
+          <p class="eyebrow">Located</p>
+          <p class="article-meta__value">Stockholm · 59°N</p>
+        </div>
+        <div class="article-meta__row">
+          <p class="eyebrow">Reading</p>
+          <p class="article-meta__value">≈ 3 min</p>
+        </div>
+      </section>
 
-      /* Page-specific background */
-      body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f2f2f2;
-        background-image: url('img_bg.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        margin: 0;
-        padding: 0;
-      }
-      footer {
-      background-color: #333;
-      width: 100%;
-      padding: 20px 0;
-      color: #fff;
-      text-align: center;
-      font-size: 14px;
-      position: sticky;
-      bottom: 0;
-    }
-    h2 {
-        font-size: 36px;
-        font-weight: 700;
-        color: rgba(91, 156, 187, 0.9);
-        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        margin-bottom: 30px;
-        text-align: center;
-      }
+      <section class="article-headline" data-stagger>
+        <h1>KTH Royal Institute of <span style="white-space:nowrap;">Technology.</span></h1>
+        <p class="article-headline__lead">Bachelor of Science in Computer Science. Coursework, teaching, and a published paper on machine learning at small scale.</p>
+      </section>
 
-      .profile-pic {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-      }
+      <figure class="article-figure">
+        <img src="img_kth.jpeg" alt="KTH Royal Institute of Technology" loading="lazy">
+        <figcaption>
+          <span>KTH Royal Institute of Technology, Stockholm.</span>
+          <span class="mono">Plate 01 / 03</span>
+        </figcaption>
+      </figure>
 
-      .profile-pic img {
-        border-radius: 50% / 30%;
-        max-width: 200px;
-        height: auto;
-        object-fit: cover;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul class = "navbar">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="resume.html">Resume</a></li>
+      <div class="article-body">
+        <section>
+          <h3>BSc <em>Computer Science</em></h3>
+          <p>
+            I read for a Bachelor of Science in Computer Science at KTH from
+            September 2021 through June 2024. Coursework spanned algorithms
+            and data structures, databases, mathematics, computer architecture,
+            and machine learning.
+          </p>
+        </section>
+
+        <section>
+          <h3><em>Teaching Assistant</em> · Python &amp; Databases</h3>
+          <p>
+            <span class="mono" style="font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em;">SEP&nbsp;2023&nbsp;—&nbsp;FEB&nbsp;2024</span>
+          </p>
+          <p>
+            Teaching Assistant in Python Programming and Database Technologies.
+            I led recitation sessions, hosted help sessions, and conducted
+            assignment assessments and grading — focused on improving student
+            performance and understanding in Python and SQL.
+          </p>
+        </section>
+
+        <section>
+          <h3>Published <em>research</em></h3>
+          <p style="font-size: var(--t-meta); line-height: 1.55;">
+            Rydell, S., Hopkins, N., Al-Khalili Szigyarto, C., Conradt, J.
+            (Aug 2024) — <em>Support Vector Machines for High-dimensional and
+            Incomplete Datasets with Few Entries</em>, KTH Royal Institute of
+            Technology.
+          </p>
+          <p style="font-size: var(--t-meta); line-height: 1.55; margin-top: var(--s-2);">
+            Romanou, A., et&nbsp;al. (Nov 2024) — <em>INCLUDE: Evaluating
+            Multilingual Language Understanding with Regional Knowledge</em>,
+            EPFL · Cohere For AI · ETH Zürich · Swiss AI Initiative.
+            <span style="color: var(--muted);">(Data contributor)</span>
+          </p>
+        </section>
+
+        <section>
+          <h3>Coursework · <em>Mathematics</em></h3>
+          <p>
+            During my time studying at KTH, I had the opportunity to learn
+            various mathematical subjects that have been crucial in my
+            academic and professional development. I studied calculus,
+            including one and multi-variable calculus, and algebra. I also
+            studied numerical methods and lastly, I have studied discrete
+            mathematics and statistics in the context of machine learning.
+          </p>
+          <p>
+            Overall, my coursework at KTH has helped me develop a better
+            understanding of the fundamental principles and methods used in
+            modern mathematics — invaluable in helping me develop my
+            analytical and problem-solving skills.
+          </p>
+        </section>
+
+        <section>
+          <h3>Coursework · <em>Computer Science</em></h3>
+          <p>
+            Throughout my academic career, I have had the opportunity to
+            study a wide range of programming and computer science courses
+            that have been crucial in my development. I have taken courses
+            in Python and Java programming, which have provided me with a
+            strong foundation in object-oriented programming and the ability
+            to work with a wide range of programming languages.
+          </p>
+          <p>
+            In addition to programming, I have studied algorithms and data
+            structures, which have been essential in my ability to design
+            and develop efficient and scalable software solutions. My
+            studies in database technology, particularly SQL, have given me
+            a strong foundation in database design and management, as well
+            as experience working with large-scale datasets.
+          </p>
+          <p>
+            I also have experience in low-level programming, having studied
+            data technology and components, including C programming,
+            assembly programming, machine code, processor design, and
+            circuit logic. This knowledge has been invaluable in helping me
+            understand the inner workings of computer systems.
+          </p>
+          <p>
+            Furthermore, I have taken a paradigm course in functional
+            programming in Haskell, syntax and automata, and language
+            theory for parsers. This course has given me a strong
+            foundation in the theory of programming languages and the
+            ability to develop software solutions using functional
+            programming techniques.
+          </p>
+          <p>
+            Finally, I have experience in parallel programming, having
+            taken a course in Go. This has provided me with experience in
+            developing concurrent and parallel software solutions that
+            take advantage of modern multi-core processors.
+          </p>
+        </section>
+
+        <section>
+          <h3>Coursework · <em>Physics &amp; Chemistry</em></h3>
+          <p>
+            During my time studying, I have had the opportunity to learn
+            various scientific subjects that have been instrumental in my
+            development. I have studied electromagnetism and wave theory,
+            including both sound and optical waves. Additionally, I have
+            taken mechanics courses, which have helped me understand the
+            physical behaviour of objects and the principles that govern them.
+          </p>
+          <p>
+            In addition to my physics studies, I have also taken a course
+            in chemistry and sustainability — giving me a better
+            understanding of the chemical reactions and processes that
+            occur in the natural world, as well as how they can be
+            harnessed for sustainable development.
+          </p>
+        </section>
+      </div>
+
+      <p style="margin-top: var(--s-6);">
+        <a class="back-link" href="portfolio.html">Back to index</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="colophon">
+    <div class="container colophon__grid">
+      <div class="colophon__col">
+        <p class="eyebrow">Studio</p>
+        <p>Sara <em>Rydell</em><br>Stockholm, Sweden</p>
+      </div>
+      <div class="colophon__col">
+        <p class="eyebrow">Index</p>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="resume.html">CV</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-      </nav>
-    </header>
-    <main>
-      <h2>My journey at KTH Royal Institute of Technology</h2>
-      <section class="about-me">
-        <h3>Mathematics</h3>
-        <p>
-          During my time studying at KTH, I had the opportunity to learn 
-          various mathematical subjects that have been crucial in my 
-          academic and professional development. I studied calculus, 
-          including one and multi-variable calculus, and algebra. I also 
-          studied numerical methods and lastly, I have studied discrete 
-          mathematics, and statistics in the context of machine learning. 
-        </p>
-        <p>
-          Overall, my coursework at KTH has helped me develop a better 
-          understanding of the fundamental principles and methods used in 
-          modern mathematics which has been invaluable in helping me 
-          develop my analytical and problem-solving skills. 
-        </p>
-        
-      </section>
-      <section class="about-me">
-        <h3>Computer Science</h3>
-        <p>  
-          Throughout my academic career, I have had the opportunity to 
-          study a wide range of programming and computer science courses 
-          that have been crucial in my academic and professional 
-          development. I have taken courses in Python programming and 
-          Java programming, which have provided me with a strong 
-          foundation in object-oriented programming and the ability to 
-          work with a wide range of programming languages.
-        </p>
-        <p>  
-          In addition to programming, I have studied algorithms and data 
-          structures, which have been essential in my ability to design 
-          and develop efficient and scalable software solutions. My 
-          studies in database technology, particularly SQL, have given me 
-          a strong foundation in database design and management, as well 
-          as experience working with large-scale datasets.
-        </p>
-        <p>  
-          I also have experience in low-level programming, having studied 
-          data technology and components, including C programming, 
-          assembly programming, machine code, processor design, and 
-          circuit logic. This knowledge has been invaluable in helping me 
-          understand the inner workings of computer systems and how to 
-          develop efficient software solutions that take advantage of 
-          hardware capabilities.
-        </p>
-        <p>  
-          Furthermore, I have taken a paradigm course in functional 
-          programming in Haskell, syntax, and automata, and language 
-          theory for parsers. This course has given me a strong 
-          foundation in the theory of programming languages and the 
-          ability to develop software solutions using functional 
-          programming techniques.
-        </p>
-        <p>  
-          Finally, I have experience in parallel programming, having 
-          taken a course in Golang. This has provided me with experience 
-          in developing concurrent and parallel software solutions that 
-          take advantage of modern multi-core processors.
-        </p>
-      </section>
-      <section class="about-me">
-        <h3>Physics and Chemistry</h3>
-        <p>
-          During my time studying, I have had the opportunity to learn 
-          various scientific subjects that have been instrumental in my 
-          academic and professional development. I have studied 
-          electromagnetism and wave theory, including both sound and 
-          optical waves. Additionally, I have taken mechanics courses, 
-          which have helped me understand the physical behavior of 
-          objects and the principles that govern them.
-        </p>
-        <p>
-          In addition to my physics studies, I have also taken a course 
-          in chemistry and sustainability. This course has given me a 
-          better understanding of the chemical reactions and processes 
-          that occur in the natural world, as well as how they can be 
-          harnessed for sustainable development.
-        </p>
-      </section>
-    </main>
-    <footer>
-      <p>Copyright &copy; Sara Rydell 2023</p>
-    </footer>
-  </body>
+      </div>
+      <div class="colophon__col">
+        <p class="eyebrow">Updated</p>
+        <p class="mono">© <span data-year>2026</span> · MMXXVI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
 </html>
