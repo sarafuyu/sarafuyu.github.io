@@ -1,172 +1,174 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>NYAS</title>
-    <style>
-      /* Basic styles for navbar, body, main, row, and footer */
-      /* ... (omitted for brevity, please use the previous response's styles) ... */
-      ul.navbar {
-        background-color: #333;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: 'Roboto', sans-serif;
-      }
-      ul.navbar li {
-        float: left;
-      }
-      ul.navbar li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      ul.navbar li a:hover {
-        background-color: #111;
-      }
-      /* Additional styles for the profile picture, and 'About Me' section */
-      .profile-pic {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-      }
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NYAS · The Junior Academy — Sara Rydell</title>
+  <meta name="description" content="Sara Rydell at NYAS · The Junior Academy — leading international project teams.">
+  <meta name="theme-color" content="#EFEAE3">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-      .profile-pic img {
-        border-radius: 50%;
-        max-width: 200px;
-        height: auto;
-      }
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="logotype" href="index.html">
+        <span class="logotype__mark" aria-hidden="true"></span>
+        Sara <em>Rydell</em>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>Menu</button>
+      <nav id="primary-nav" class="site-nav" data-nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html" aria-current="page">Work</a>
+        <a href="resume.html">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-      .about-me {
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        width: 80%;
-        margin: 0 auto;
-        font-size: 18px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+  <main id="main">
+    <div class="container">
+      <section class="article-meta" data-stagger>
+        <div class="article-meta__row">
+          <p class="eyebrow">Entry</p>
+          <p class="article-meta__value">No. 04 / Project</p>
+        </div>
+        <div class="article-meta__row">
+          <p class="eyebrow">Programme</p>
+          <p class="article-meta__value">NYAS · TJA · 2019 — 2020</p>
+        </div>
+        <div class="article-meta__row">
+          <p class="eyebrow">Role</p>
+          <p class="article-meta__value">Project Leader · global</p>
+        </div>
+        <div class="article-meta__row">
+          <p class="eyebrow">Reading</p>
+          <p class="article-meta__value">≈ 3 min</p>
+        </div>
+      </section>
 
-      /* Page-specific background */
-      body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f2f2f2;
-        background-image: url('img_bg.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        margin: 0;
-        padding: 0;
-      }
-      footer {
-      background-color: #333;
-      width: 100%;
-      padding: 20px 0;
-      color: #fff;
-      text-align: center;
-      font-size: 14px;
-      position: sticky;
-      bottom: 0;
-    }
-    h2 {
-        font-size: 36px;
-        font-weight: 700;
-        color: rgba(91, 156, 187, 0.9);
-        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        margin-bottom: 30px;
-        text-align: center;
-      }
+      <section class="article-headline" data-stagger>
+        <h1>NYAS · The Junior <span style="white-space:nowrap;">Academy.</span></h1>
+        <p class="article-headline__lead">Junior Academy Project Leader (2019 — 2020). Dual winner — <em>Intelligent Homes &amp; Health</em> (NYAS, Feb 2020) and the <em>Young Innovation in Times of Crisis</em> award (IVA, May 2020).</p>
+      </section>
 
-      .profile-pic {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-      }
+      <figure class="article-figure">
+        <img src="img_nyas.jpg" alt="NYAS × IVA event" loading="lazy">
+        <figcaption>
+          <span>NYAS × IVA, Stockholm.</span>
+          <span class="mono">Plate 02 / 03</span>
+        </figcaption>
+      </figure>
 
-      .profile-pic img {
-        border-radius: 50% / 30%;
-        max-width: 200px;
-        height: auto;
-        object-fit: cover;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul class = "navbar">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="resume.html">Resume</a></li>
+      <div class="article-body">
+        <section>
+          <h3>An <em>elite</em> programme</h3>
+          <p>
+            The Junior Academy is a highly selective international STEM
+            programme run by the New York Academy of Sciences, with an
+            8% acceptance rate. Across 2019 — 2020 I led two teams — both
+            of which placed first in their respective competitions.
+          </p>
+        </section>
+
+        <section>
+          <h3>About <em>The Junior Academy</em></h3>
+          <p>
+            For more than 200 years, the New York Academy of Sciences (NYAS)
+            has brought together extraordinary people working at the frontiers
+            of discovery. Among the oldest scientific organisations in the
+            United States, the Academy has become an important and widely-
+            respected contributor to the international scientific community.
+          </p>
+          <p>
+            Each year, the Academy selects an international cohort of
+            passionate high school students (ages 13 — 17) to become part of
+            The Junior Academy (TJA), who join a dynamic global network of
+            like-minded peers and mentors. Students collaborate virtually as
+            they compete in project-based challenges focused on the United
+            Nations Sustainable Development Goals.
+          </p>
+        </section>
+
+        <section>
+          <h3>Intelligent Homes &amp; Health · <em>Health Sync</em></h3>
+          <p>
+            As team leader of six individuals from Sweden, the USA, the
+            Philippines, and Australia, we won this international competition
+            in autumn 2019. Our extensive solution involved incorporating
+            preventative, health-promoting aspects, as well as tracking and
+            monitoring people's health in their day-to-day lives.
+          </p>
+          <p>
+            The prize for winning was an all-included trip to the STEM
+            Alliance Summit to present the project in summer 2020. However,
+            due to the pandemic the event was cancelled. Nevertheless, I
+            did not lose my spirit — which I'll talk about next.
+          </p>
+        </section>
+
+        <section>
+          <h3>Combating COVID-19 · <em>United in Crisis</em></h3>
+          <p>
+            For the Combating COVID-19 competition, my team and I from
+            Sweden, Turkey, and the USA worked together to develop a
+            technology-based solution to address the obstacles faced by
+            governments, healthcare providers, and economies during the
+            pandemic.
+          </p>
+          <p>
+            Our project, <em>United in Crisis</em>, focused on solving the
+            strain on universal healthcare facilities while addressing the
+            increased unemployment caused by the pandemic. We suggested
+            utilising AI/ML models to analyse the resumes and profiles of
+            unemployed individuals — aiming to best match them with courses
+            or programmes required to change careers into professions in
+            high demand.
+          </p>
+          <p>
+            The work earned us the <em>Young Innovation in Times of Crisis</em>
+            award, issued by the Royal Swedish Academy of Engineering Sciences
+            (IVA) in May 2020. The recognition led to invitations to share
+            the project on national television and radio, bringing the work
+            into the national spotlight.
+          </p>
+        </section>
+      </div>
+
+      <p style="margin-top: var(--s-6);">
+        <a class="back-link" href="portfolio.html">Back to index</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="colophon">
+    <div class="container colophon__grid">
+      <div class="colophon__col">
+        <p class="eyebrow">Studio</p>
+        <p>Sara <em>Rydell</em><br>Stockholm, Sweden</p>
+      </div>
+      <div class="colophon__col">
+        <p class="eyebrow">Index</p>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="resume.html">CV</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-      </nav>
-    </header>
-    <main>
-      <h2>My journey at TJA x NYAS</h2>
-      <section class="about-me">
-        <h3>About NYAS's TJA</h3>
-        <p>
-          For more than 200 years, the New York Academy of Sciences (NYAS) 
-          has brought together extraordinary people working at the frontiers 
-          of discovery. Among the oldest scientific organizations in the 
-          United States, the Academy has become an important and widely-
-          respected contributor to the international scientific community. 
-        </p>
-        <p>
-          Each year, the New York Academy of Sciences, part of NYAS, 
-          selects an international cohort of passionate high school 
-          students (ages 13-17) to become part of The Junior Academy (TJA), 
-          who join a dynamic global network of like-minded peers and 
-          mentors. Students collaborate virtually as they compete in 
-          project-based challenges focused on the United Nations 
-          Sustainable Development Goals. 
-        </p>
-      </section>
-      <section class="about-me">
-        <h3>Intelligent Homes & Health: Health Sync</h3>
-        <p>  
-          As the team leader of six individuals from Sweden, USA, the 
-          Philippines, and Australia, we won this international 
-          competition in the autumn of 2019. Our extensive solution 
-          involved incorporating preventative health-promoting aspects, 
-          as well as tracking and monitoring people's health in their 
-          day-to-day lives. The prize for winning was an all-included 
-          trip to the STEM Alliance Summit to present the project in the 
-          summer of 2020. However, due to the pandemic, the event was 
-          canceled. Nevertheless, I did not loose my spirit! Which I will 
-          talk about next.
-        </p>
-      </section>
-      <section class="about-me">
-        <h3>Combating COVID-19: United in Crisis</h3>
-        <p>
-          For the Combating COVID-19 competition, my team and I from 
-          Sweden, Turkey, and the USA worked together to develop a 
-          technology-based solution to address the obstacles faced by 
-          governments, healthcare providers, and economies during the 
-          pandemic. Our project, United in Crisis, focused on solving 
-          the strain on universal healthcare facilities while addressing 
-          the increased unemployment caused by the pandemic and other 
-          economic changes. We suggested utilizing AI/ML models to 
-          analyze the resumes and profiles of unemployed individuals, 
-          aiming to best match them with courses or programs required to 
-          change careers into professions in high demand. We believe this 
-          solution can help alleviate the burden on healthcare systems 
-          while also addressing the needs of those negatively impacted by 
-          the pandemic.
-        </p>
-      </section>
-    </main>
-    <footer>
-      <p>Copyright &copy; Sara Rydell 2023</p>
-    </footer>
-  </body>
+      </div>
+      <div class="colophon__col">
+        <p class="eyebrow">Updated</p>
+        <p class="mono">© <span data-year>2026</span> · MMXXVI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
 </html>

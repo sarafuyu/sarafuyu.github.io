@@ -1,147 +1,169 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>Home</title>
-    <style>
-      /* Basic styles for navbar, body, main, row, and footer */
-      /* ... (omitted for brevity, please use the previous response's styles) ... */
-      ul.navbar {
-        background-color: #333;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: 'Roboto', sans-serif;
-      }
-      ul.navbar li {
-        float: left;
-      }
-      ul.navbar li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      ul.navbar li a:hover {
-        background-color: #111;
-      }
-      /* Additional styles for the profile picture, and 'About Me' section */
-      .profile-pic {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-      }
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sara Rydell — IT Product Architect, Stockholm</title>
+  <meta name="description" content="Sara Rydell — IT Product Architect at Ericsson, based in Stockholm.">
+  <meta name="theme-color" content="#EFEAE3">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-      .profile-pic img {
-        border-radius: 50%;
-        max-width: 200px;
-        height: auto;
-      }
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="logotype" href="index.html">
+        <span class="logotype__mark" aria-hidden="true"></span>
+        Sara <em>Rydell</em>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>Menu</button>
+      <nav id="primary-nav" class="site-nav" data-nav aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Work</a>
+        <a href="resume.html">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-      .about-me {
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        width: 80%;
-        margin: 0 auto;
-        font-size: 18px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+  <main id="main">
+    <div class="container">
+      <section class="masthead" aria-label="Masthead" data-stagger>
+        <div class="masthead__col">
+          <p class="eyebrow">Interests</p>
+          <p class="masthead__value mono">Agentic AI · LLMs · Enterprise AI</p>
+        </div>
+        <div class="masthead__col">
+          <p class="eyebrow">Located</p>
+          <p class="masthead__value mono">Stockholm · 59°N</p>
+        </div>
+        <div class="masthead__col">
+          <p class="eyebrow">Weather</p>
+          <p class="masthead__value mono">
+            <span data-weather>—</span>
+          </p>
+        </div>
+        <div class="masthead__col">
+          <p class="eyebrow">Local time</p>
+          <p class="masthead__value mono">
+            <span class="masthead__pulse" aria-hidden="true"></span><span data-clock>—:—</span>
+          </p>
+        </div>
+      </section>
 
-      /* Page-specific background */
-      body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f2f2f2;
-        background-image: url('img_bg.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        margin: 0;
-        padding: 0;
-      }
-      footer {
-      background-color: #333;
-      width: 100%;
-      padding: 20px 0;
-      color: #fff;
-      text-align: center;
-      font-size: 14px;
-      position: sticky;
-      bottom: 0;
-    }
-    h2 {
-        font-size: 36px;
-        font-weight: 700;
-        color: rgba(91, 156, 187, 0.9);
-        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        margin-bottom: 30px;
-        text-align: center;
-      }
+      <section class="display-block" data-stagger>
+        <h1 class="display-headline">
+          Sara
+          <span class="display-headline__break">Rydell<span class="display-headline__period">.</span></span>
+        </h1>
+        <div class="display-block__lead">
+          <p class="eyebrow" style="margin-bottom: 14px;">Statement</p>
+          <p>IT Product Architect working at the intersection of enterprise IT strategy and product delivery in large-scale Azure environments — currently at Ericsson, Stockholm.</p>
+          <p style="margin-top: var(--s-2);">Focused on aligning architectural direction with product execution, supporting roadmap decisions, governance, and cross-organisational initiatives that improve clarity and decision quality across stakeholders.</p>
+        </div>
+      </section>
 
-      .profile-pic {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-      }
+      <section class="section" aria-labelledby="sel-work">
+        <header class="section__head">
+          <p class="section__num">§ 01</p>
+          <h2 class="section__title" id="sel-work">Selected work</h2>
+          <p class="section__meta">04 entries · 2019 — present</p>
+        </header>
+        <ul class="work-list">
+          <li class="work-item">
+            <a class="work-item__link" href="ericsson.html">
+              <span class="work-item__num">01</span>
+              <span class="work-item__title"><em>Ericsson</em> AB</span>
+              <span class="work-item__role">IT Product Architect · Stockholm, 2025 — present</span>
+              <span class="work-item__cat">Role</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
+            <a class="work-item__link" href="pharus.html">
+              <span class="work-item__num">02</span>
+              <span class="work-item__title"><em>Pharus Tech</em> AB</span>
+              <span class="work-item__role">Board Member · IT Architecture Consultant, since 2020</span>
+              <span class="work-item__cat">Engagement</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
+            <a class="work-item__link" href="kth.html">
+              <span class="work-item__num">03</span>
+              <span class="work-item__title">KTH Royal Institute of <em>Technology</em></span>
+              <span class="work-item__role">BSc Computer Science · TA in Python &amp; Databases</span>
+              <span class="work-item__cat">Education</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
+            <a class="work-item__link" href="nyas.html">
+              <span class="work-item__num">04</span>
+              <span class="work-item__title">NYAS · The Junior <em>Academy</em></span>
+              <span class="work-item__role">Team lead · Health Sync &amp; United in Crisis (dual winner)</span>
+              <span class="work-item__cat">Project</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+      </section>
 
-      .profile-pic img {
-        border-radius: 50% / 30%;
-        max-width: 200px;
-        height: auto;
-        object-fit: cover;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul class = "navbar">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="resume.html">Resume</a></li>
+      <section class="section" aria-labelledby="elsewhere">
+        <header class="section__head">
+          <p class="section__num">§ 02</p>
+          <h2 class="section__title" id="elsewhere">Elsewhere</h2>
+          <p class="section__meta">Index</p>
+        </header>
+        <ul class="elsewhere">
+          <li>
+            <p class="eyebrow">A</p>
+            <a href="about.html">A short biography</a>
+            <p class="mono" style="font-size: 0.6875rem; color: var(--muted);">/about</p>
+          </li>
+          <li>
+            <p class="eyebrow">B</p>
+            <a href="resume.html">Curriculum vitæ</a>
+            <p class="mono" style="font-size: 0.6875rem; color: var(--muted);">/cv</p>
+          </li>
+          <li>
+            <p class="eyebrow">C</p>
+            <a href="contact.html">Send a message</a>
+            <p class="mono" style="font-size: 0.6875rem; color: var(--muted);">/contact</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="colophon">
+    <div class="container colophon__grid">
+      <div class="colophon__col">
+        <p class="eyebrow">Studio</p>
+        <p>Sara <em>Rydell</em><br>Stockholm, Sweden</p>
+      </div>
+      <div class="colophon__col">
+        <p class="eyebrow">Index</p>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="resume.html">CV</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-      </nav>
-    </header>
-    <main>
-      
-      <div class="profile-pic">
-        <img src="kvadrat-komprimerad.jpg" alt="Profile picture">
       </div>
-      <h2>Welcome to my website!</h2>
-      <section class="about-me">
-        <h3>About Me</h3>
-        <p>
-          Hi! My name is Sara Rydell. I'm a skilled web developer and 
-          designer with a passion for creating beautiful, responsive, and 
-          user-friendly websites. 
-        </p>
-        <p>
-          My experience includes studying the Master of Engineering in 
-          Computer Science, while being active in the student 
-          organization Malvina for women and non-binary at KTH. I worked as an IT Architecture Consultant at 
-          a tech startup, JobAgent, during the summer of 2020. 
-        </p>
-        <p>
-          When I'm not working on projects, I love to learn new
-          technologies and expand my skillset. Feel free to take a look 
-          at my portfolio and reach out if you'd like to work together!
-        </p>
-        <h4>Skills:</h4>
-        <p>
-          Data structures and algorithms, Database Technologies, Creative solutions, Communication, 
-          Organization Skills, Problem Solving, & Project Management.
-        </p>
-      </section>
-    </main>
-    <footer>
-      <p>Copyright &copy; Sara Rydell 2023</p>
-    </footer>
-  </body>
+      <div class="colophon__col">
+        <p class="eyebrow">Updated</p>
+        <p class="mono">© <span data-year>2026</span> · MMXXVI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
 </html>
