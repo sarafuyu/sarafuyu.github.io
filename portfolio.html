@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +10,11 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
@@ -21,12 +24,15 @@
         <span class="logotype__mark" aria-hidden="true"></span>
         Sara <em>Rydell</em>
       </a>
-      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>Menu</button>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false"
+        data-nav-toggle>Menu</button>
       <nav id="primary-nav" class="site-nav" data-nav aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="portfolio.html" aria-current="page">Work</a>
         <a href="resume.html">CV</a>
+        <a href="projects.html">Projects</a>
+        <a href="misc.html">Misc</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -34,89 +40,108 @@
 
   <main id="main">
     <div class="container">
-      <section class="masthead" aria-label="Masthead" data-stagger>
-        <div class="masthead__col">
-          <p class="eyebrow">Interests</p>
-          <p class="masthead__value mono">Agentic AI · LLMs · Enterprise AI</p>
-        </div>
-        <div class="masthead__col">
-          <p class="eyebrow">Located</p>
-          <p class="masthead__value mono">Stockholm · 59°N</p>
-        </div>
-        <div class="masthead__col">
-          <p class="eyebrow">Weather</p>
-          <p class="masthead__value mono">
-            <span data-weather>—</span>
-          </p>
-        </div>
-        <div class="masthead__col">
-          <p class="eyebrow">Local time</p>
-          <p class="masthead__value mono">
-            <span class="masthead__pulse" aria-hidden="true"></span><span data-clock>—:—</span>
-          </p>
-        </div>
-      </section>
-
       <section class="article-headline" data-stagger>
-        <h1>Selected <br>work.</h1>
-        <p class="article-headline__lead">Roles, engagements, and projects — present-day work first; earlier studies and competitions further down.</p>
+        <h1>Selected <br>work<span class="headline-period">.</span></h1>
+        <p class="article-headline__lead">Roles, engagements, teaching, and community work — present-day work first;
+          earlier studies, competitions, and service further down.</p>
       </section>
 
       <section class="section" aria-labelledby="works">
         <header class="section__head">
           <p class="section__num">§ 01</p>
           <h2 class="section__title" id="works">Index of work</h2>
-          <p class="section__meta">2019 — present</p>
+          <p class="section__meta">2017 — present</p>
         </header>
         <ul class="work-list">
           <li class="work-item">
             <a class="work-item__link" href="ericsson.html">
               <span class="work-item__num">01</span>
               <span class="work-item__title"><em>Ericsson</em> AB</span>
-              <span class="work-item__role">IT Product Architect · Stockholm, 2025 — present</span>
+              <span class="work-item__role">
+                <span>IT Product Architect · Stockholm, Jul 2025 — present</span>
+                <span>IT Trainee · Stockholm, Aug 2024 — Jun 2025</span>
+              </span>
               <span class="work-item__cat">Role</span>
               <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
           </li>
           <li class="work-item">
-            <a class="work-item__link" href="pharus.html">
+            <a class="work-item__link" href="malvina.html">
               <span class="work-item__num">02</span>
+              <span class="work-item__title"><em>Malvina</em> KTH</span>
+              <span class="work-item__role">
+                <span>Head of Business Events · 2023 / 2024</span>
+                <span>Business Events member · 2022 / 2023</span>
+              </span>
+              <span class="work-item__cat">Organisation</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
+            <a class="work-item__link" href="pharus.html">
+              <span class="work-item__num">03</span>
               <span class="work-item__title"><em>Pharus Tech</em> AB</span>
-              <span class="work-item__role">Board Member · IT Architecture Consultant, since 2020</span>
+              <span class="work-item__role">
+                <span>Board Member · Oct 2020 — Apr 2025</span>
+                <span>IT Architecture Consultant · Jul 2020 — Sep 2020</span>
+              </span>
               <span class="work-item__cat">Engagement</span>
               <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
           </li>
           <li class="work-item">
             <a class="work-item__link" href="kth.html">
-              <span class="work-item__num">03</span>
-              <span class="work-item__title">KTH Royal Institute of <em>Technology</em></span>
-              <span class="work-item__role">BSc Computer Science · TA in Python &amp; Databases</span>
+              <span class="work-item__num">04</span>
+              <span class="work-item__title">KTH <em>Royal Institute of Technology</em></span>
+              <span class="work-item__role">
+                <span>BSc Computer Science · Sep 2021 — Jun 2024</span>
+                <span>Teaching Assistant · Sep 2023 — Feb 2024</span>
+              </span>
               <span class="work-item__cat">Education</span>
               <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
           </li>
           <li class="work-item">
+            <a class="work-item__link" href="my-academy.html">
+              <span class="work-item__num">05</span>
+              <span class="work-item__title"><em>My Academy</em></span>
+              <span class="work-item__role">
+                <span>Study Coach · Apr 2022 — Sep 2023</span>
+                <span>Mathematics tutoring · Stockholm County</span>
+              </span>
+              <span class="work-item__cat">Teaching</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
             <a class="work-item__link" href="nyas.html">
-              <span class="work-item__num">04</span>
-              <span class="work-item__title">NYAS · The Junior <em>Academy</em></span>
-              <span class="work-item__role">Team lead · Health Sync &amp; United in Crisis (dual winner)</span>
+              <span class="work-item__num">06</span>
+              <span class="work-item__title">TJA <em>New York Academy of Sciences</em></span>
+              <span class="work-item__role">
+                <span>Junior Academy Project Leader · 2019 — 2020</span>
+                <span>Team lead · Health Sync &amp; United in Crisis</span>
+              </span>
               <span class="work-item__cat">Project</span>
               <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
           </li>
           <li class="work-item">
-            <a class="work-item__link" href="malvina.html">
-              <span class="work-item__num">05</span>
-              <span class="work-item__title"><em>Malvina</em>, KTH</span>
-              <span class="work-item__role">Head of Business Events · 2023 / 2024</span>
-              <span class="work-item__cat">Organisation</span>
+            <a class="work-item__link" href="ung-omsorg.html">
+              <span class="work-item__num">07</span>
+              <span class="work-item__title"><em>Ung Omsorg</em></span>
+              <span class="work-item__role">
+                <span>Participant &amp; activity organizer · Sep 2017 — Sep 2018</span>
+                <span>Community activities · Stockholm County</span>
+              </span>
+              <span class="work-item__cat">Volunteering</span>
               <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
           </li>
         </ul>
-        <p class="mono" style="font-size: 0.75rem; color: var(--muted); margin-top: var(--s-4); letter-spacing: 0.04em;">
-          End of index. Programmes (BCG, SEB) &amp; publications listed in <a href="about.html" style="color: var(--ink); text-decoration-color: var(--hairline-strong);">About</a>.
+        <p class="mono"
+          style="font-size: 0.75rem; color: var(--muted); margin-top: var(--s-4); letter-spacing: 0.04em;">
+          End of index. Programmes (BCG, SEB) &amp; publications listed in <a href="about.html"
+            style="color: var(--ink); text-decoration-color: var(--hairline-strong);">About</a>.
         </p>
       </section>
     </div>
@@ -146,4 +171,5 @@
 
   <script src="assets/js/main.js" defer></script>
 </body>
+
 </html>

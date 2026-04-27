@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +10,11 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
@@ -21,12 +24,15 @@
         <span class="logotype__mark" aria-hidden="true"></span>
         Sara <em>Rydell</em>
       </a>
-      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>Menu</button>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false"
+        data-nav-toggle>Menu</button>
       <nav id="primary-nav" class="site-nav" data-nav aria-label="Primary">
         <a href="index.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
         <a href="portfolio.html">Work</a>
         <a href="resume.html">CV</a>
+        <a href="projects.html">Projects</a>
+        <a href="misc.html">Misc</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -37,11 +43,11 @@
       <section class="masthead" aria-label="Masthead" data-stagger>
         <div class="masthead__col">
           <p class="eyebrow">Interests</p>
-          <p class="masthead__value mono">Agentic AI · LLMs · Enterprise AI</p>
+          <p class="masthead__value mono">Agentic AI · Robotic Process Automation · IT Observability</p>
         </div>
         <div class="masthead__col">
           <p class="eyebrow">Located</p>
-          <p class="masthead__value mono">Stockholm · 59°N</p>
+          <p class="masthead__value mono">Stockholm · Sweden · 59°N</p>
         </div>
         <div class="masthead__col">
           <p class="eyebrow">Weather</p>
@@ -60,12 +66,16 @@
       <section class="display-block" data-stagger>
         <h1 class="display-headline">
           Sara
-          <span class="display-headline__break">Rydell<span class="display-headline__period">.</span></span>
+          <span class="display-headline__break">Rydell<span class="headline-period">.</span></span>
         </h1>
         <div class="display-block__lead">
           <p class="eyebrow" style="margin-bottom: 14px;">Statement</p>
-          <p>IT Product Architect working at the intersection of enterprise IT strategy and product delivery in large-scale Azure environments — currently at Ericsson, Stockholm.</p>
-          <p style="margin-top: var(--s-2);">Focused on aligning architectural direction with product execution, supporting roadmap decisions, governance, and cross-organisational initiatives that improve clarity and decision quality across stakeholders.</p>
+          <p>IT Product Architect working at the intersection of enterprise IT strategy and product delivery for
+            cloud-based supply chain and licensing solutions — currently at Ericsson HQ in Stockholm.</p>
+          <p style="margin-top: var(--s-2);">Focused on translating business and compliance needs into IT
+            requirements, aligning architectural direction with product execution, and driving roadmap, governance,
+            and cross-organizational initiatives that enable efficient, well-governed software supply and licensing
+            across products and stakeholders.</p>
         </div>
       </section>
 
@@ -73,41 +83,65 @@
         <header class="section__head">
           <p class="section__num">§ 01</p>
           <h2 class="section__title" id="sel-work">Selected work</h2>
-          <p class="section__meta">04 entries · 2019 — present</p>
+          <p class="section__meta">05 entries · 2019 — present</p>
         </header>
         <ul class="work-list">
           <li class="work-item">
             <a class="work-item__link" href="ericsson.html">
               <span class="work-item__num">01</span>
               <span class="work-item__title"><em>Ericsson</em> AB</span>
-              <span class="work-item__role">IT Product Architect · Stockholm, 2025 — present</span>
+              <span class="work-item__role">
+                <span>IT Product Architect · Stockholm, Jul 2025 — present</span>
+                <span>IT Trainee · Stockholm, Aug 2024 — Jun 2025</span>
+              </span>
               <span class="work-item__cat">Role</span>
               <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
           </li>
           <li class="work-item">
-            <a class="work-item__link" href="pharus.html">
+            <a class="work-item__link" href="malvina.html">
               <span class="work-item__num">02</span>
+              <span class="work-item__title"><em>Malvina</em> KTH</span>
+              <span class="work-item__role">
+                <span>Head of Business Events · 2023 / 2024</span>
+                <span>Business Events member · 2022 / 2023</span>
+              </span>
+              <span class="work-item__cat">Organisation</span>
+              <span class="work-item__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="work-item">
+            <a class="work-item__link" href="pharus.html">
+              <span class="work-item__num">03</span>
               <span class="work-item__title"><em>Pharus Tech</em> AB</span>
-              <span class="work-item__role">Board Member · IT Architecture Consultant, since 2020</span>
+              <span class="work-item__role">
+                <span>Board Member · Oct 2020 — Apr 2025</span>
+                <span>IT Architecture Consultant · Jul 2020 — Sep 2020</span>
+              </span>
               <span class="work-item__cat">Engagement</span>
               <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
           </li>
           <li class="work-item">
             <a class="work-item__link" href="kth.html">
-              <span class="work-item__num">03</span>
-              <span class="work-item__title">KTH Royal Institute of <em>Technology</em></span>
-              <span class="work-item__role">BSc Computer Science · TA in Python &amp; Databases</span>
+              <span class="work-item__num">04</span>
+              <span class="work-item__title">KTH <em>Royal Institute of Technology</em></span>
+              <span class="work-item__role">
+                <span>BSc Computer Science · Sep 2021 — Jun 2024</span>
+                <span>Teaching Assistant · Sep 2023 — Feb 2024</span>
+              </span>
               <span class="work-item__cat">Education</span>
               <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
           </li>
           <li class="work-item">
             <a class="work-item__link" href="nyas.html">
-              <span class="work-item__num">04</span>
-              <span class="work-item__title">NYAS · The Junior <em>Academy</em></span>
-              <span class="work-item__role">Team lead · Health Sync &amp; United in Crisis (dual winner)</span>
+              <span class="work-item__num">05</span>
+              <span class="work-item__title">TJA <em>New York Academy of Sciences</em></span>
+              <span class="work-item__role">
+                <span>Junior Academy Project Leader · 2019 — 2020</span>
+                <span>Team lead · Health Sync &amp; United in Crisis</span>
+              </span>
               <span class="work-item__cat">Project</span>
               <span class="work-item__arrow" aria-hidden="true">→</span>
             </a>
@@ -129,11 +163,21 @@
           </li>
           <li>
             <p class="eyebrow">B</p>
+            <a href="misc.html">Miscellany</a>
+            <p class="mono" style="font-size: 0.6875rem; color: var(--muted);">/misc</p>
+          </li>
+          <li>
+            <p class="eyebrow">C</p>
+            <a href="projects.html">Project archive</a>
+            <p class="mono" style="font-size: 0.6875rem; color: var(--muted);">/projects</p>
+          </li>
+          <li>
+            <p class="eyebrow">D</p>
             <a href="resume.html">Curriculum vitæ</a>
             <p class="mono" style="font-size: 0.6875rem; color: var(--muted);">/cv</p>
           </li>
           <li>
-            <p class="eyebrow">C</p>
+            <p class="eyebrow">E</p>
             <a href="contact.html">Send a message</a>
             <p class="mono" style="font-size: 0.6875rem; color: var(--muted);">/contact</p>
           </li>
@@ -166,4 +210,5 @@
 
   <script src="assets/js/main.js" defer></script>
 </body>
+
 </html>
