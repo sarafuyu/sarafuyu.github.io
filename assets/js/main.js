@@ -68,37 +68,85 @@
     monthEls.forEach((el) => { el.textContent = m; });
   }
 
-  // --- Live Stockholm weather (Open-Meteo, no API key) ---
+  // --- Live Stockholm weather ---
   const weatherEls = document.querySelectorAll('[data-weather]');
   if (weatherEls.length && 'fetch' in window) {
-    const codeMap = {
-      0:  'Clear',
-      1:  'Mostly clear', 2: 'Partly cloudy', 3: 'Overcast',
-      45: 'Fog',           48: 'Rime fog',
-      51: 'Light drizzle', 53: 'Drizzle',     55: 'Drizzle',
-      56: 'Freezing drizzle', 57: 'Freezing drizzle',
-      61: 'Light rain',    63: 'Rain',        65: 'Heavy rain',
-      66: 'Freezing rain', 67: 'Freezing rain',
-      71: 'Light snow',    73: 'Snow',        75: 'Heavy snow',
-      77: 'Snow grains',
-      80: 'Showers',       81: 'Showers',     82: 'Heavy showers',
-      85: 'Snow showers',  86: 'Snow showers',
-      95: 'Thunderstorm',  96: 'Thunderstorm', 99: 'Thunderstorm',
+    const temperatureStation = {
+      id: '98230',
+      name: 'Stockholm-Observatoriekullen A',
     };
-    const url = 'https://api.open-meteo.com/v1/forecast?latitude=59.3293&longitude=18.0686&current=temperature_2m,weather_code&timezone=Europe%2FStockholm';
-    fetch(url, { cache: 'default' })
-      .then((r) => r.ok ? r.json() : Promise.reject(new Error('weather request failed')))
-      .then((data) => {
-        const c = data && data.current;
-        if (!c) return;
-        const t = Math.round(c.temperature_2m);
-        const sign = t > 0 ? '+' : '';
-        const desc = codeMap[c.weather_code] || '—';
-        const text = `${sign}${t}° · ${desc}`;
-        weatherEls.forEach((el) => { el.textContent = text; });
-      })
-      .catch(() => {
-        weatherEls.forEach((el) => { el.textContent = '—'; });
+    const weatherStation = {
+      id: '97200',
+      name: 'Stockholm-Bromma Flygplats',
+    };
+    const conditionFromSmhiCode = (code, precipitation) => {
+      if (precipitation > 0 && code === 100) return 'Rain';
+      if ([10, 11, 12, 28, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 120, 130, 131, 132, 133, 134, 135].includes(code)) return 'Fog';
+      if ([17, 29, 91, 92, 93, 94, 95, 96, 97, 98, 99, 126, 190, 191, 192, 193, 194, 195, 196].includes(code)) return 'Thunderstorm';
+      if ([50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 122, 150, 151, 152, 153, 154, 155, 156, 157, 158, 250, 251, 252, 253, 254, 255, 256, 257].includes(code)) return 'Drizzle';
+      if ([20, 21, 23, 24, 25, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 80, 81, 82, 83, 84, 121, 123, 140, 141, 142, 143, 144, 160, 161, 162, 163, 164, 165, 166, 167, 168, 180, 181, 182, 183, 184, 260, 261, 262, 263, 264, 265, 266, 267, 280, 281, 282, 289, 290].includes(code)) return 'Rain';
+      if ([22, 26, 36, 37, 38, 39, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 85, 86, 87, 88, 89, 90, 124, 127, 128, 129, 145, 146, 170, 171, 172, 173, 174, 175, 176, 177, 178, 185, 186, 187, 189, 210, 211, 239, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 283, 284, 285, 286, 287, 288, 291].includes(code)) return 'Snow';
+      if ([4, 5, 6, 7, 8, 9, 104, 105, 110, 204, 206, 208, 209].includes(code)) return 'Haze';
+      return 'Clear';
+    };
+    const fmtObservedAt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Stockholm',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
+    const fetchJson = (url) => fetch(url, { cache: 'no-store' })
+      .then((r) => r.ok ? r.json() : Promise.reject(new Error('weather request failed')));
+    const setWeatherFallback = () => {
+      weatherEls.forEach((el) => {
+        el.textContent = '—';
+        el.removeAttribute('title');
       });
+    };
+    const updateWeather = () => {
+      const cacheKey = Math.floor(Date.now() / (10 * 60 * 1000));
+      const temperatureUrl = `https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1/station/${temperatureStation.id}/period/latest-hour/data.json?cache=${cacheKey}`;
+      const weatherUrl = `https://opendata-download-metobs.smhi.se/api/version/latest/parameter/13/station/${weatherStation.id}/period/latest-hour/data.json?cache=${cacheKey}`;
+      const precipitationUrl = `https://opendata-download-metobs.smhi.se/api/version/latest/parameter/7/station/${temperatureStation.id}/period/latest-hour/data.json?cache=${cacheKey}`;
+
+      Promise.all([fetchJson(temperatureUrl), fetchJson(weatherUrl), fetchJson(precipitationUrl)])
+        .then(([temperatureData, weatherData, precipitationData]) => {
+          const latest = temperatureData
+            && Array.isArray(temperatureData.value)
+            && temperatureData.value[temperatureData.value.length - 1];
+          const latestWeather = weatherData
+            && Array.isArray(weatherData.value)
+            && weatherData.value[weatherData.value.length - 1];
+          const latestPrecipitation = precipitationData
+            && Array.isArray(precipitationData.value)
+            && precipitationData.value[precipitationData.value.length - 1];
+          const temp = latest && Number(latest.value);
+          const code = latestWeather && Number(latestWeather.value);
+          const precipitation = latestPrecipitation ? Number(latestPrecipitation.value) : 0;
+          if (!Number.isFinite(temp)) {
+            throw new Error('temperature response missing latest Stockholm observation');
+          }
+          if (!Number.isFinite(code)) {
+            throw new Error('weather response missing latest Stockholm condition');
+          }
+
+          const sign = temp > 0 ? '+' : '';
+          const condition = conditionFromSmhiCode(code, precipitation);
+          const text = `${sign}${temp.toFixed(1)}° · ${condition}`;
+          const observedAt = latest.date ? fmtObservedAt.format(new Date(latest.date)) : null;
+          const title = observedAt
+            ? `${temperatureStation.name}, observed ${observedAt}; weather from ${weatherStation.name}`
+            : temperatureStation.name;
+
+          weatherEls.forEach((el) => {
+            el.textContent = text;
+            el.title = title;
+          });
+        })
+        .catch(setWeatherFallback);
+    };
+
+    updateWeather();
+    setInterval(updateWeather, 10 * 60 * 1000);
   }
 })();
