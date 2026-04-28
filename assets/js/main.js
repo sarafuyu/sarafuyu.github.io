@@ -149,4 +149,152 @@
     updateWeather();
     setInterval(updateWeather, 10 * 60 * 1000);
   }
+
+  // --- Live T-Centralen rail board ---
+  const trainBoard = document.querySelector('[data-train-board]');
+  const trainStatus = document.querySelector('[data-train-status]');
+  const trainUpdated = document.querySelector('[data-train-updated]');
+  if (trainBoard && trainStatus && 'fetch' in window) {
+    const siteId = 9001;
+    const railModes = new Set(['METRO', 'TRAM', 'TRAIN']);
+    const modeLabels = {
+      METRO: 'Metro',
+      TRAM: 'Tram',
+      TRAIN: 'Train',
+    };
+    const fmtClock = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Stockholm',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
+    const fetchJson = (url) => fetch(url, { cache: 'no-store' })
+      .then((r) => r.ok ? r.json() : Promise.reject(new Error('train request failed')));
+    const setStatus = (text, state = 'idle') => {
+      trainStatus.textContent = text;
+      trainStatus.dataset.state = state;
+    };
+    const setUpdated = () => {
+      if (trainUpdated) trainUpdated.textContent = `${fmtClock.format(new Date())} Stockholm`;
+    };
+    const clearBoard = () => {
+      while (trainBoard.firstChild) trainBoard.removeChild(trainBoard.firstChild);
+    };
+    const makeCell = (text, className) => {
+      const cell = document.createElement('td');
+      cell.textContent = text;
+      if (className) cell.className = className;
+      return cell;
+    };
+    const renderEmpty = (message) => {
+      clearBoard();
+      const row = document.createElement('tr');
+      const cell = makeCell(message);
+      cell.colSpan = 5;
+      row.appendChild(cell);
+      trainBoard.appendChild(row);
+    };
+    const minutesDelta = (expected, scheduled) => {
+      const e = expected ? new Date(expected) : null;
+      const s = scheduled ? new Date(scheduled) : null;
+      if (!e || !s || Number.isNaN(e.getTime()) || Number.isNaN(s.getTime())) return 0;
+      return Math.round((e.getTime() - s.getTime()) / 60000);
+    };
+    const statusFor = (departure) => {
+      if (departure.state === 'CANCELLED') return 'Cancelled';
+      const deviations = Array.isArray(departure.deviations) ? departure.deviations : [];
+      const deviation = deviations.find((item) => item.consequence && item.consequence !== 'INFORMATION')
+        || deviations.find((item) => Number(item.importance_level) >= 5);
+      if (deviation && deviation.message) return deviation.message;
+      const delta = minutesDelta(departure.expected, departure.scheduled);
+      if (delta > 1) return `${delta} min late`;
+      if (delta < -1) return `${Math.abs(delta)} min early`;
+      if (departure.state === 'ATSTOP') return 'At stop';
+      return 'On time';
+    };
+    const isAlert = (departure) => {
+      if (departure.state === 'CANCELLED') return true;
+      if (Math.abs(minutesDelta(departure.expected, departure.scheduled)) > 1) return true;
+      const deviations = Array.isArray(departure.deviations) ? departure.deviations : [];
+      return deviations.some((item) => item.consequence && item.consequence !== 'INFORMATION');
+    };
+    const renderDepartures = (departures) => {
+      clearBoard();
+      departures.forEach((departure) => {
+        const mode = departure.line && departure.line.transport_mode;
+        const row = document.createElement('tr');
+        const timeCell = makeCell(
+          departure.display || (departure.expected ? fmtClock.format(new Date(departure.expected)) : '-'),
+          'train-table__time',
+        );
+        if (departure.expected || departure.scheduled) {
+          const expected = departure.expected ? fmtClock.format(new Date(departure.expected)) : '-';
+          const scheduled = departure.scheduled ? fmtClock.format(new Date(departure.scheduled)) : '-';
+          timeCell.title = `Expected ${expected}; scheduled ${scheduled}`;
+        }
+
+        const lineCell = document.createElement('td');
+        const line = document.createElement('span');
+        line.className = `train-line train-line--${String(mode || 'rail').toLowerCase()}`;
+        line.textContent = departure.line && departure.line.designation
+          ? String(departure.line.designation)
+          : (modeLabels[mode] || 'Rail');
+        line.title = modeLabels[mode] || 'Rail';
+        lineCell.appendChild(line);
+
+        const destination = departure.destination || departure.direction || '-';
+        const track = departure.stop_point && departure.stop_point.designation
+          ? departure.stop_point.designation
+          : '-';
+        const status = statusFor(departure);
+        const statusCell = makeCell(status, isAlert(departure)
+          ? 'train-table__status train-table__status--alert'
+          : 'train-table__status');
+
+        row.append(
+          timeCell,
+          lineCell,
+          makeCell(destination, 'train-table__destination'),
+          makeCell(track, 'train-table__track'),
+          statusCell,
+        );
+        trainBoard.appendChild(row);
+      });
+    };
+    const updateTrainBoard = () => {
+      const url = `https://transport.integration.sl.se/v1/sites/${siteId}/departures`;
+      fetchJson(url)
+        .then((data) => {
+          const departures = Array.isArray(data.departures) ? data.departures : [];
+          const railDepartures = departures
+            .filter((departure) => departure.line && railModes.has(departure.line.transport_mode))
+            .sort((a, b) => {
+              const aTime = new Date(a.expected || a.scheduled || 0).getTime();
+              const bTime = new Date(b.expected || b.scheduled || 0).getTime();
+              return aTime - bTime;
+            });
+
+          if (!railDepartures.length) {
+            renderEmpty('No rail departures returned right now.');
+            setStatus('No rail departures returned in the current SL window.');
+            setUpdated();
+            return;
+          }
+
+          renderDepartures(railDepartures.slice(0, 8));
+          setStatus(`${railDepartures.length} rail departures in the current SL window.`);
+          setUpdated();
+        })
+        .catch(() => {
+          renderEmpty('Live departures are temporarily unavailable.');
+          setStatus('SL departures could not be loaded right now.', 'error');
+        });
+    };
+
+    updateTrainBoard();
+    setInterval(updateTrainBoard, 60 * 1000);
+  } else if (trainStatus) {
+    trainStatus.textContent = 'Live departures require browser fetch support.';
+    trainStatus.dataset.state = 'error';
+  }
 })();

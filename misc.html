@@ -24,7 +24,6 @@
       <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>Menu</button>
       <nav id="primary-nav" class="site-nav" data-nav aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
         <a href="portfolio.html">Work</a>
         <a href="resume.html">CV</a>
         <a href="projects.html">Projects</a>
@@ -144,6 +143,59 @@
             </article>
           </div>
         </section>
+
+        <section class="train-board" aria-labelledby="train-board-heading">
+          <h3 id="train-board-heading">T-Centralen <em>train table</em></h3>
+          <p>
+            A small live board for rail departures from Stockholm's central
+            interchange, filtered to metro, tram, and train services.
+          </p>
+
+          <div class="train-board__surface">
+            <div class="train-board__meta" aria-label="Train board details">
+              <div>
+                <p class="eyebrow">Station</p>
+                <p>T-Centralen</p>
+              </div>
+              <div>
+                <p class="eyebrow">Feed</p>
+                <p>SL site 9001</p>
+              </div>
+              <div>
+                <p class="eyebrow">Updated</p>
+                <p class="mono" data-train-updated>Waiting</p>
+              </div>
+            </div>
+
+            <p class="train-board__status mono" data-train-status aria-live="polite">
+              Loading live departures...
+            </p>
+
+            <div class="train-table-wrap">
+              <table class="train-table">
+                <caption>Rail departures from T-Centralen</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">When</th>
+                    <th scope="col">Line</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Track</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody data-train-board>
+                  <tr>
+                    <td colspan="5">Departures load from SL when available.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <p class="train-board__credit">
+            Live data from <a href="https://www.trafiklab.se/api/our-apis/sl/transport/" target="_blank" rel="noopener">SL Transport via Trafiklab</a>.
+          </p>
+        </section>
       </div>
 
       <p style="margin-top: var(--s-6);">
@@ -161,7 +213,7 @@
       <div class="colophon__col">
         <p class="eyebrow">Index</p>
         <ul>
-          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#about">About</a></li>
           <li><a href="portfolio.html">Work</a></li>
           <li><a href="resume.html">CV</a></li>
           <li><a href="contact.html">Contact</a></li>
