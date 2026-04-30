@@ -45,9 +45,16 @@
           <p class="article-meta__value">Stockholm · 59°N</p>
         </div>
         <div class="article-meta__row">
-          <p class="eyebrow">Weather</p>
+          <p class="eyebrow">Weather <span class="weather-info-wrap"><button class="weather-info-btn" type="button" aria-label="Weather data source">i</button><span class="weather-tooltip" role="tooltip"></span></span></p>
           <p class="article-meta__value">
-            <span data-weather aria-live="polite">—</span>
+            <span data-weather aria-live="polite">
+              <span class="weather-main">
+                <span class="weather-temp">—</span>
+                <span class="weather-icon" aria-hidden="true"></span>
+                <span class="weather-condition"></span>
+              </span>
+              <span class="weather-detail"></span>
+            </span>
           </p>
         </div>
         <div class="article-meta__row">

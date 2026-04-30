@@ -71,83 +71,177 @@
   // --- Live Stockholm weather ---
   const weatherEls = document.querySelectorAll('[data-weather]');
   if (weatherEls.length && 'fetch' in window) {
-    const temperatureStation = {
-      id: '98230',
-      name: 'Stockholm-Observatoriekullen A',
+    const stockholmWeatherUrl = 'https://opendata-download-metfcst.smhi.se/api/category/snow1g/version/1/geotype/point/lon/18.0686/lat/59.3293/data.json?timeseries=1&parameters=air_temperature,wind_speed,symbol_code';
+    const weatherRefreshMs = 15 * 60 * 1000;
+    const weatherFocusThrottleMs = 60 * 1000;
+    let weatherRequestId = 0;
+    let lastWeatherFetchAt = 0;
+    const fetchJson = (url, refreshKey) => {
+      const separator = url.includes('?') ? '&' : '?';
+      return fetch(`${url}${separator}fresh=${refreshKey}`, { cache: 'no-store' })
+        .then((r) => r.ok ? r.json() : Promise.reject(new Error('weather request failed')));
     };
-    const weatherStation = {
-      id: '97200',
-      name: 'Stockholm-Bromma Flygplats',
+    const symbolWeather = {
+      1: { condition: 'Clear', icon: 'Clear' },
+      2: { condition: 'Nearly clear', icon: 'Clear' },
+      3: { condition: 'Variable clouds', icon: 'Cloud' },
+      4: { condition: 'Half clear', icon: 'Cloud' },
+      5: { condition: 'Cloudy', icon: 'Cloud' },
+      6: { condition: 'Overcast', icon: 'Cloud' },
+      7: { condition: 'Fog', icon: 'Fog' },
+      8: { condition: 'Light showers', icon: 'Rain' },
+      9: { condition: 'Showers', icon: 'Rain' },
+      10: { condition: 'Heavy showers', icon: 'Rain' },
+      11: { condition: 'Thunderstorm', icon: 'Thunderstorm' },
+      12: { condition: 'Light sleet showers', icon: 'Sleet' },
+      13: { condition: 'Sleet showers', icon: 'Sleet' },
+      14: { condition: 'Heavy sleet showers', icon: 'Sleet' },
+      15: { condition: 'Light snow showers', icon: 'Snow' },
+      16: { condition: 'Snow showers', icon: 'Snow' },
+      17: { condition: 'Heavy snow showers', icon: 'Snow' },
+      18: { condition: 'Light rain', icon: 'Rain' },
+      19: { condition: 'Rain', icon: 'Rain' },
+      20: { condition: 'Heavy rain', icon: 'Rain' },
+      21: { condition: 'Thunder', icon: 'Thunderstorm' },
+      22: { condition: 'Light sleet', icon: 'Sleet' },
+      23: { condition: 'Sleet', icon: 'Sleet' },
+      24: { condition: 'Heavy sleet', icon: 'Sleet' },
+      25: { condition: 'Light snow', icon: 'Snow' },
+      26: { condition: 'Snow', icon: 'Snow' },
+      27: { condition: 'Heavy snow', icon: 'Snow' },
     };
-    const conditionFromSmhiCode = (code, precipitation) => {
-      if (precipitation > 0 && code === 100) return 'Rain';
-      if ([10, 11, 12, 28, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 120, 130, 131, 132, 133, 134, 135].includes(code)) return 'Fog';
-      if ([17, 29, 91, 92, 93, 94, 95, 96, 97, 98, 99, 126, 190, 191, 192, 193, 194, 195, 196].includes(code)) return 'Thunderstorm';
-      if ([50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 122, 150, 151, 152, 153, 154, 155, 156, 157, 158, 250, 251, 252, 253, 254, 255, 256, 257].includes(code)) return 'Drizzle';
-      if ([20, 21, 23, 24, 25, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 80, 81, 82, 83, 84, 121, 123, 140, 141, 142, 143, 144, 160, 161, 162, 163, 164, 165, 166, 167, 168, 180, 181, 182, 183, 184, 260, 261, 262, 263, 264, 265, 266, 267, 280, 281, 282, 289, 290].includes(code)) return 'Rain';
-      if ([22, 26, 36, 37, 38, 39, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 85, 86, 87, 88, 89, 90, 124, 127, 128, 129, 145, 146, 170, 171, 172, 173, 174, 175, 176, 177, 178, 185, 186, 187, 189, 210, 211, 239, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 283, 284, 285, 286, 287, 288, 291].includes(code)) return 'Snow';
-      if ([4, 5, 6, 7, 8, 9, 104, 105, 110, 204, 206, 208, 209].includes(code)) return 'Haze';
-      return 'Clear';
+    const numberFromSmhi = (value) => {
+      const number = Number(value);
+      return Number.isFinite(number) && number !== 9999 ? number : NaN;
     };
-    const fmtObservedAt = new Intl.DateTimeFormat('en-GB', {
-      timeZone: 'Europe/Stockholm',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-    });
-    const fetchJson = (url) => fetch(url, { cache: 'no-store' })
-      .then((r) => r.ok ? r.json() : Promise.reject(new Error('weather request failed')));
+    const latestStockholmWeather = (data) => {
+      if (!data || !Array.isArray(data.timeSeries)) return null;
+      for (const point of data.timeSeries) {
+        const details = point && point.data;
+        const temperature = details && numberFromSmhi(details.air_temperature);
+        const windSpeed = details && numberFromSmhi(details.wind_speed);
+        const symbolCode = details && numberFromSmhi(details.symbol_code);
+        if (Number.isFinite(temperature) && Number.isFinite(symbolCode)) {
+          return {
+            temperature,
+            windSpeed,
+            weather: symbolWeather[symbolCode] || { condition: 'SMHI weather', icon: 'Cloud' },
+          };
+        }
+      }
+      return null;
+    };
+    const formatDegrees = (value) => {
+      const rounded = Math.round(value);
+      const sign = rounded > 0 ? '+' : '';
+      return `${sign}${rounded}°`;
+    };
+    const feelsLike = (temperature, windSpeed) => {
+      if (Number.isFinite(windSpeed) && temperature <= 10 && windSpeed > 1.34) {
+        const windKmh = windSpeed * 3.6;
+        return 13.12 + (0.6215 * temperature)
+          - (11.37 * (windKmh ** 0.16))
+          + (0.3965 * temperature * (windKmh ** 0.16));
+      }
+      return temperature;
+    };
+    const conditionIcons = {
+      Clear: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
+      'Clear-night':'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+      Cloud: '<path d="M17.5 19H8a6 6 0 1 1 5.7-7.88A4.5 4.5 0 1 1 17.5 19Z"/>',
+      Rain: '<path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/><line x1="8" y1="19" x2="8" y2="21"/><line x1="8" y1="13" x2="8" y2="15"/><line x1="16" y1="19" x2="16" y2="21"/><line x1="16" y1="13" x2="16" y2="15"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="12" y1="15" x2="12" y2="17"/>',
+      Sleet: '<path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/><path d="M8 19v2M16 19v2M12 17v4"/><path d="m10 14 4 4M14 14l-4 4"/>',
+      Snow: '<line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><path d="m20 16-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/>',
+      Fog: '<path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 17H7M17 21H9"/>',
+      Thunderstorm: '<path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"/><path d="m13 12-3 5h4l-3 5"/>',
+    };
+    const makeWeatherIcon = (icon) => {
+      let key = icon;
+      if (icon === 'Clear') {
+        const hour = Number(new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Europe/Stockholm',
+          hour: 'numeric',
+          hour12: false,
+        }).format(new Date()));
+        if (hour >= 21 || hour < 6) key = 'Clear-night';
+      }
+      const inner = conditionIcons[key];
+      if (!inner) return '';
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+    };
     const setWeatherFallback = () => {
       weatherEls.forEach((el) => {
-        el.textContent = '—';
-        el.removeAttribute('title');
+        const tempEl = el.querySelector('.weather-temp');
+        const iconEl = el.querySelector('.weather-icon');
+        const condEl = el.querySelector('.weather-condition');
+        const detailEl = el.querySelector('.weather-detail');
+        if (tempEl) tempEl.textContent = '—';
+        else el.textContent = '—';
+        if (iconEl) iconEl.innerHTML = '';
+        if (condEl) condEl.textContent = '';
+        if (detailEl) detailEl.textContent = '';
+        el.removeAttribute('aria-busy');
       });
     };
-    const updateWeather = () => {
-      const cacheKey = Math.floor(Date.now() / (10 * 60 * 1000));
-      const temperatureUrl = `https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1/station/${temperatureStation.id}/period/latest-hour/data.json?cache=${cacheKey}`;
-      const weatherUrl = `https://opendata-download-metobs.smhi.se/api/version/latest/parameter/13/station/${weatherStation.id}/period/latest-hour/data.json?cache=${cacheKey}`;
-      const precipitationUrl = `https://opendata-download-metobs.smhi.se/api/version/latest/parameter/7/station/${temperatureStation.id}/period/latest-hour/data.json?cache=${cacheKey}`;
+    const updateWeather = (force = false) => {
+      const now = Date.now();
+      if (!force && now - lastWeatherFetchAt < weatherFocusThrottleMs) return;
+      lastWeatherFetchAt = now;
 
-      Promise.all([fetchJson(temperatureUrl), fetchJson(weatherUrl), fetchJson(precipitationUrl)])
-        .then(([temperatureData, weatherData, precipitationData]) => {
-          const latest = temperatureData
-            && Array.isArray(temperatureData.value)
-            && temperatureData.value[temperatureData.value.length - 1];
-          const latestWeather = weatherData
-            && Array.isArray(weatherData.value)
-            && weatherData.value[weatherData.value.length - 1];
-          const latestPrecipitation = precipitationData
-            && Array.isArray(precipitationData.value)
-            && precipitationData.value[precipitationData.value.length - 1];
-          const temp = latest && Number(latest.value);
-          const code = latestWeather && Number(latestWeather.value);
-          const precipitation = latestPrecipitation ? Number(latestPrecipitation.value) : 0;
-          if (!Number.isFinite(temp)) {
-            throw new Error('temperature response missing latest Stockholm observation');
-          }
-          if (!Number.isFinite(code)) {
-            throw new Error('weather response missing latest Stockholm condition');
+      const requestId = ++weatherRequestId;
+      const refreshKey = `${now}-${requestId}`;
+
+      weatherEls.forEach((el) => {
+        el.setAttribute('aria-busy', 'true');
+      });
+
+      fetchJson(stockholmWeatherUrl, refreshKey)
+        .then((data) => {
+          if (requestId !== weatherRequestId) return;
+
+          const latest = latestStockholmWeather(data);
+
+          if (!latest) {
+            throw new Error('weather response missing latest Stockholm data');
           }
 
-          const sign = temp > 0 ? '+' : '';
-          const condition = conditionFromSmhiCode(code, precipitation);
-          const text = `${sign}${temp.toFixed(1)}° · ${condition}`;
-          const observedAt = latest.date ? fmtObservedAt.format(new Date(latest.date)) : null;
-          const title = observedAt
-            ? `${temperatureStation.name}, observed ${observedAt}; weather from ${weatherStation.name}`
-            : temperatureStation.name;
+          const tempText = formatDegrees(latest.temperature);
+          const condition = latest.weather.condition;
+          const apparent = feelsLike(latest.temperature, latest.windSpeed);
+          const detailText = `feels like ${formatDegrees(apparent)}`;
+          const iconHtml = makeWeatherIcon(latest.weather.icon);
+          const tooltipText = 'SMHI Stockholm point forecast';
 
           weatherEls.forEach((el) => {
-            el.textContent = text;
-            el.title = title;
+            const tempEl = el.querySelector('.weather-temp');
+            const iconEl = el.querySelector('.weather-icon');
+            const condEl = el.querySelector('.weather-condition');
+            const detailEl = el.querySelector('.weather-detail');
+            const row = el.closest('.article-meta__row');
+            const tooltipEl = row ? row.querySelector('.weather-tooltip') : null;
+            if (tempEl) tempEl.textContent = tempText;
+            else el.textContent = `${tempText} · ${condition}`;
+            if (iconEl) iconEl.innerHTML = iconHtml;
+            if (condEl) condEl.textContent = condition;
+            if (detailEl) detailEl.textContent = detailText;
+            if (tooltipEl) tooltipEl.textContent = tooltipText;
+            el.removeAttribute('aria-busy');
           });
         })
-        .catch(setWeatherFallback);
+        .catch(() => {
+          if (requestId === weatherRequestId) setWeatherFallback();
+        });
     };
 
-    updateWeather();
-    setInterval(updateWeather, 10 * 60 * 1000);
+    updateWeather(true);
+    setInterval(() => updateWeather(true), weatherRefreshMs);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') updateWeather(true);
+    });
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted) updateWeather(true);
+    });
+    window.addEventListener('focus', () => updateWeather());
   }
 
   // --- Live T-Centralen rail board ---
