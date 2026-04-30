@@ -30,7 +30,7 @@
         <a href="index.html" aria-current="page">Home</a>
         <a href="portfolio.html">Work</a>
         <a href="resume.html">CV</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html">Portfolio</a>
         <a href="misc.html">Misc</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -39,188 +39,94 @@
 
   <main id="main">
     <div class="container">
-      <section class="masthead" aria-label="Masthead" data-stagger>
-        <div class="masthead__col">
-          <p class="eyebrow">Interests</p>
-          <p class="masthead__value mono">Agentic AI · Robotic Process Automation · IT Observability</p>
+      <section class="home-hero" aria-labelledby="home-title" data-stagger>
+        <div class="home-hero__copy">
+          <h1 class="display-headline" id="home-title">
+            Sara
+            <span class="display-headline__break">Rydell<span class="headline-period">.</span></span>
+          </h1>
+          <div class="display-block__lead">
+            <p class="eyebrow" style="margin-bottom: 14px;">Statement</p>
+            <p>IT Product Architect at Ericsson HQ in Stockholm, working where enterprise IT strategy,
+              product delivery, governance, and automation meet.</p>
+          </div>
         </div>
-        <div class="masthead__col">
-          <p class="eyebrow">Located</p>
-          <p class="masthead__value mono">Stockholm · Sweden · 59°N</p>
-        </div>
-        <div class="masthead__col">
-          <p class="eyebrow">Weather</p>
-          <p class="masthead__value mono">
-            <span data-weather aria-live="polite">—</span>
-          </p>
-        </div>
-        <div class="masthead__col">
-          <p class="eyebrow">Local time</p>
-          <p class="masthead__value mono">
-            <span class="masthead__pulse" aria-hidden="true"></span><span data-clock>—:—</span>
-          </p>
-        </div>
-      </section>
 
-      <section class="display-block" data-stagger>
-        <h1 class="display-headline">
-          Sara
-          <span class="display-headline__break">Rydell<span class="headline-period">.</span></span>
-        </h1>
-        <div class="display-block__lead">
-          <p class="eyebrow" style="margin-bottom: 14px;">Statement</p>
-          <p>IT Product Architect working at the intersection of enterprise IT strategy and product delivery for
-            cloud-based supply chain and licensing solutions — currently at Ericsson HQ in Stockholm.</p>
-          <p style="margin-top: var(--s-2);">Focused on translating business and compliance needs into IT
-            requirements, aligning architectural direction with product execution, and driving roadmap, governance,
-            and cross-organizational initiatives that enable efficient, well-governed software supply and licensing
-            across products and stakeholders.</p>
-        </div>
-      </section>
-
-      <section class="section landing-about" id="about" aria-labelledby="about-heading">
-        <header class="section__head">
-          <p class="section__num">§ 01</p>
-          <h2 class="section__title" id="about-heading">About</h2>
-          <p class="section__meta">Biography · skills · honours</p>
-        </header>
-
-        <div class="about-grid" data-stagger>
-          <figure class="about-grid__portrait">
-            <img src="kvadrat-komprimerad.jpg" alt="Portrait of Sara Rydell" loading="lazy">
-            <figcaption class="about-grid__caption">
-              <span class="eyebrow">Plate</span>
-              <span class="mono">001 / Stockholm</span>
+        <div class="home-hero__media">
+          <figure class="home-hero__portrait">
+            <img src="kvadrat-komprimerad.jpg" alt="Portrait of Sara Rydell">
+            <figcaption>
+              <span>Stockholm-based</span>
+              <span class="mono">Architecture · product · cloud</span>
             </figcaption>
           </figure>
+        </div>
+      </section>
 
-          <div class="about-grid__body">
-            <p class="lead">
-              Stockholm-based IT Product Architect working where architecture,
-              product direction, and enterprise cloud delivery meet.
-            </p>
-
-            <p style="margin-top: var(--s-3);">
+      <section class="landing-profile" id="about" aria-labelledby="profile-heading" data-stagger>
+        <h2 class="sr-only" id="profile-heading">Profile</h2>
+        <div class="landing-profile__copy">
+          <p class="landing-profile__kicker mono">Ericsson · KTH Computer Science · Stockholm</p>
+          <p class="landing-profile__statement">
+            Architecture as a way to turn direction into delivery.
+          </p>
+          <div class="landing-profile__text">
+            <p>
               My work sits close to roadmap decisions, governance, and
-              cross-organisational initiatives: translating strategic direction
-              into clearer product and engineering choices. I am especially drawn
-              to the space between business intent and technical execution, where
-              good architecture makes decisions easier rather than heavier.
+              cross-organisational initiatives: translating business and compliance
+              needs into product and engineering choices that are easier to act on.
             </p>
             <p>
               I came into the role through Ericsson's IT Trainee Program, rotating
-              through data science, cloud engineering, and business operations. In
-              those rotations I worked with GenAI prototypes, RAG and text-to-SQL
-              agents, Azure resource management, PowerShell and Bicep, FinOps and
-              sustainability dashboards, and IT governance evaluation. Alongside
-              architectural responsibilities, I still enjoy building practical
-              automation with RPA and the Microsoft Power Platform.
+              through data science, cloud engineering, and business operations.
+              That foundation still shapes how I approach GenAI prototypes, Azure
+              resource governance, observability, FinOps, and practical automation
+              with RPA and the Microsoft Power Platform.
             </p>
             <p>
               Before KTH, I spent several school years in music, art, and design
-              tracks, and joined The Junior Academy during high school. That mix
-              of technical problem-solving, visual thinking, and collaborative
-              work still shapes how I approach systems, communication, and
-              decision-making.
+              tracks, then joined The Junior Academy during high school. The mix of
+              technical problem-solving, visual thinking, and collaborative work
+              still informs how I communicate decisions and shape systems.
             </p>
-            <p>
-              The less formal notes live in <a href="misc.html">Miscellany</a>:
-              books, food, choir, plants, trails, and other things that sit just
-              outside the CV.
-            </p>
-
-            <section class="about-section">
-              <p class="eyebrow">§ Now</p>
-              <div class="about-section__body">
-                <p>
-                  <strong>IT Product Architect</strong> at Ericsson AB — Stockholm.<br>
-                  Driving alignment between enterprise IT strategy and product
-                  execution; co-spokesperson for an enterprise observability
-                  initiative.
-                </p>
-              </div>
-            </section>
-
-            <section class="about-section">
-              <p class="eyebrow">§ Education</p>
-              <div class="about-section__body">
-                <p>
-                  <strong>BSc Computer Science</strong> — KTH Royal Institute of
-                  Technology, Stockholm. <span class="mono" style="font-size: 0.75rem; color: var(--muted);">Sep 2021 — Jun 2024</span>
-                </p>
-                <p style="margin-top: 6px; font-size: var(--t-meta); color: var(--muted);">
-                  Algorithms · Data structures · Databases · Mathematics ·
-                  Computer architecture · Machine learning.
-                </p>
-              </div>
-            </section>
-
-            <section class="about-section">
-              <p class="eyebrow">§ Skills</p>
-              <div class="about-section__body">
-                <ul class="taglist">
-                  <li>Python</li>
-                  <li>Java / C</li>
-                  <li>SQL</li>
-                  <li>Go</li>
-                  <li>Assembly</li>
-                  <li>HTML / CSS / JS</li>
-                  <li>PowerShell</li>
-                  <li>Bicep</li>
-                  <li>PowerBI</li>
-                  <li>MATLAB</li>
-                  <li>scikit-learn</li>
-                  <li>LangChain / LangGraph</li>
-                  <li>Azure</li>
-                  <li>MLOps</li>
-                  <li>RPA · Power Platform</li>
-                </ul>
-              </div>
-            </section>
-
-            <section class="about-section">
-              <p class="eyebrow">§ Honours</p>
-              <div class="about-section__body">
-                <p>
-                  <em>Young Innovation in Times of Crisis</em> — IVA, Royal
-                  Swedish Academy of Engineering Sciences (May 2020).
-                </p>
-                <p style="margin-top: 6px;">
-                  Winner — <em>The Intelligent Homes &amp; Health Challenge</em>,
-                  NYAS (Feb 2020).
-                </p>
-              </div>
-            </section>
-
-            <section class="about-section">
-              <p class="eyebrow">§ Publications</p>
-              <div class="about-section__body">
-                <p style="font-size: var(--t-meta); line-height: 1.55;">
-                  Rydell, S., Hopkins, N., Al-Khalili Szigyarto, C., Conradt, J.
-                  (2024) — <a href="https://www.diva-portal.org/smash/record.jsf?pid=diva2:1886374" target="_blank" rel="noopener"><em>Support Vector Machines for High-dimensional and
-                  Incomplete Datasets with Few Entries</em></a>, KTH.
-                </p>
-                <p style="font-size: var(--t-meta); line-height: 1.55; margin-top: 6px;">
-                  Romanou, A., et&nbsp;al. (2024) — <a href="https://arxiv.org/abs/2411.19799" target="_blank" rel="noopener"><em>INCLUDE: Evaluating
-                  Multilingual Language Understanding with Regional Knowledge</em></a>,
-                  EPFL · Cohere For AI · ETH Zürich · Swiss AI Initiative.
-                  <span style="color: var(--muted);">(Data contributor)</span>
-                </p>
-              </div>
-            </section>
-
-            <section class="about-section">
-              <p class="eyebrow">§ Engagements</p>
-              <div class="about-section__body">
-                <p>
-                  Board Member, Pharus Tech AB — Oct 2020 — Apr 2025.<br>
-                  Head of Business Events, Malvina KTH — 2023/2024.<br>
-                  Junior Academy Project Leader, NYAS — 2019/2020.
-                </p>
-              </div>
-            </section>
           </div>
         </div>
+      </section>
+
+      <section class="landing-ledger" aria-label="Profile details" data-stagger>
+        <article class="landing-ledger__item">
+          <p class="eyebrow">Now</p>
+          <p><strong>IT Product Architect</strong> at Ericsson AB, Stockholm; co-spokesperson for an enterprise observability initiative.</p>
+        </article>
+        <article class="landing-ledger__item">
+          <p class="eyebrow">Education</p>
+          <p><strong>BSc Computer Science</strong>, KTH Royal Institute of Technology. Algorithms, databases, mathematics, computer architecture, and machine learning.</p>
+        </article>
+        <article class="landing-ledger__item">
+          <p class="eyebrow">Stack</p>
+          <ul class="taglist">
+            <li>Python</li>
+            <li>SQL</li>
+            <li>Java / C</li>
+            <li>PowerShell</li>
+            <li>Bicep</li>
+            <li>Azure</li>
+            <li>PowerBI</li>
+            <li>LangChain / LangGraph</li>
+            <li>RPA · Power Platform</li>
+          </ul>
+        </article>
+        <article class="landing-ledger__item">
+          <p class="eyebrow">Recognition</p>
+          <p><em>Young Innovation in Times of Crisis</em>, IVA; winner of NYAS <em>The Intelligent Homes &amp; Health Challenge</em>.</p>
+        </article>
+        <article class="landing-ledger__item landing-ledger__item--links">
+          <p class="eyebrow">Publications</p>
+          <p>
+            <a href="https://www.diva-portal.org/smash/record.jsf?pid=diva2:1886374" target="_blank" rel="noopener">SVMs for sparse high-dimensional data</a>
+            <a href="https://arxiv.org/abs/2411.19799" target="_blank" rel="noopener">INCLUDE data contributor</a>
+          </p>
+        </article>
       </section>
 
     </div>
@@ -235,7 +141,6 @@
       <div class="colophon__col">
         <p class="eyebrow">Index</p>
         <ul>
-          <li><a href="#about">About</a></li>
           <li><a href="portfolio.html">Work</a></li>
           <li><a href="resume.html">CV</a></li>
           <li><a href="contact.html">Contact</a></li>
